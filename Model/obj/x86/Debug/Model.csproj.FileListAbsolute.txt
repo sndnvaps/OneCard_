@@ -1,0 +1,11 @@
+D:\Projects\SVN\HHZX\SIOTS_HHZX\Model\bin\x86\Debug\Model.dll
+D:\Projects\SVN\HHZX\SIOTS_HHZX\Model\bin\x86\Debug\Model.pdb
+D:\Projects\SVN\HHZX\SIOTS_HHZX\Model\bin\x86\Debug\Common.dll
+D:\Projects\SVN\HHZX\SIOTS_HHZX\Model\bin\x86\Debug\SystemLog.dll
+D:\Projects\SVN\HHZX\SIOTS_HHZX\Model\bin\x86\Debug\office.dll
+D:\Projects\SVN\HHZX\SIOTS_HHZX\Model\bin\x86\Debug\Microsoft.Office.Interop.Excel.dll
+D:\Projects\SVN\HHZX\SIOTS_HHZX\Model\bin\x86\Debug\Microsoft.Vbe.Interop.dll
+D:\Projects\SVN\HHZX\SIOTS_HHZX\Model\bin\x86\Debug\Common.pdb
+D:\Projects\SVN\HHZX\SIOTS_HHZX\Model\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Projects\SVN\HHZX\SIOTS_HHZX\Model\obj\x86\Debug\Model.dll
+D:\Projects\SVN\HHZX\SIOTS_HHZX\Model\obj\x86\Debug\Model.pdb

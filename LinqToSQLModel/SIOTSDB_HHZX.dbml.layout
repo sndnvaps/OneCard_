@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 17.75, 24.375" name="SIOTSDB_HHZX">
+  <DataContextMoniker Name="/SIOTSDB_HHZXDataContext" />
+  <nestedChildShapes>
+    <classShape Id="fe565707-4d8a-40f6-a6d1-25aa08c4b65a" absoluteBounds="6.625, 11.625, 2, 2.9086836751302059">
+      <DataClassMoniker Name="/SIOTSDB_HHZXDataContext/CodeMaster_cmt" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d780ce59-d1ca-42fd-8a13-3a40abf2818c" absoluteBounds="6.64, 12.085, 1.9700000000000002, 2.348683675130208" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f3c22d5e-55c1-4603-824d-4c669fdb012f" absoluteBounds="8.75, 2.875, 2, 2.1446048990885416">
+      <DataClassMoniker Name="/SIOTSDB_HHZXDataContext/ConsumeCardMaster_ccm" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2548429d-7c40-4eca-98c0-e414c29b7305" absoluteBounds="8.765, 3.335, 1.9700000000000002, 1.5846048990885415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="676749e7-cd4c-4f25-9b95-8fd3435e13c6" absoluteBounds="9.75, 11.75, 2, 2.3356245930989594">
+      <DataClassMoniker Name="/SIOTSDB_HHZXDataContext/DepartmentMaster_dpm" />
+      <nestedChildShapes>
+        <elementListCompartment Id="59a91715-5630-49ce-bdfe-9c88d1274248" absoluteBounds="9.765, 12.21, 1.9700000000000002, 1.7756245930989585" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0f410067-c7ec-43c0-a7c3-412691904527" isExpanded="false" absoluteBounds="4.125, 23.125, 2, 0.45">
+      <DataClassMoniker Name="/SIOTSDB_HHZXDataContext/LogDetail_lgd" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fe77a371-0602-4da6-8daf-27a2feea4835" absoluteBounds="4.1400000000000006, 23.585, 1.9700000000000002, 1.966644287109375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="17ffcdb1-7588-4b3f-98c8-48b3db9e6be1" absoluteBounds="0.875, 16.625, 2, 1.5715458170572951">
+      <DataClassMoniker Name="/SIOTSDB_HHZXDataContext/Sys_FormPurview_frp" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f7c3d2c0-1fab-4614-806d-a76feb55dc0e" absoluteBounds="0.89000000000000012, 17.085, 1.9700000000000002, 1.0115458170572915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="55503b0e-5737-45f1-965c-75b982c5b4fd" isExpanded="false" absoluteBounds="0.875, 18.5, 2, 0.45">
+      <DataClassMoniker Name="/SIOTSDB_HHZXDataContext/Sys_FunctionMaster_fum" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cd0555e7-e31f-49e6-b72d-23134f2a16dd" absoluteBounds="0.88999999999999968, 18.96, 1.9700000000000002, 1.7756245930989585" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2d4f5465-a16d-458a-8fe1-52758d233cb8" isExpanded="false" absoluteBounds="0.875, 19.125, 2, 0.45">
+      <DataClassMoniker Name="/SIOTSDB_HHZXDataContext/Sys_RecordLockRegister_rlr" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ac7d590f-7900-4275-b6f7-1bd35e0f2cfb" absoluteBounds="0.89000000000000057, 19.585, 1.9700000000000002, 1.2025655110677083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="853e1c03-2d9f-4769-ba91-31a7f2e3e2eb" absoluteBounds="4.125, 17.875, 2, 2.1446048990885451">
+      <DataClassMoniker Name="/SIOTSDB_HHZXDataContext/Sys_RoleMaster_rlm" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9d3d0ff4-9807-4aa8-83c5-f1cab358118c" absoluteBounds="4.1400000000000006, 18.335, 1.9700000000000002, 1.5846048990885415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b500fb9f-2cc3-4026-8691-c15d8fb6dd75" absoluteBounds="0.875, 14.625, 2, 1.3805261230468773">
+      <DataClassMoniker Name="/SIOTSDB_HHZXDataContext/Sys_UserRoles_usr" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a84fdc65-7d5a-4924-bed5-0082761181df" absoluteBounds="0.89000000000000012, 15.085, 1.9700000000000002, 0.820526123046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ede91d88-0a95-4a7d-9155-a7cae70ff7d7" absoluteBounds="6.25, 6, 2, 2.7176639811197916">
+      <DataClassMoniker Name="/SIOTSDB_HHZXDataContext/ClassMaster_csm" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ee62ac0e-15ba-4120-86a7-87227a85d92b" absoluteBounds="6.265, 6.46, 1.9700000000000002, 2.1576639811197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="26aa33d4-031a-428e-8d8d-70618baabd53" absoluteBounds="2.5, 11, 2, 3.0997033691406251">
+      <DataClassMoniker Name="/SIOTSDB_HHZXDataContext/UserCardPair_ucp" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2a02e647-4307-47d2-a2ac-5358d4cfb6ea" absoluteBounds="2.515, 11.46, 1.9700000000000002, 2.539703369140625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.90625 : 5.01960489908854); (8.90625 : 11.5133221435547); (4.5 : 11.5133221435547)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SIOTSDB_HHZXDataContext/ConsumeCardMaster_ccm/ConsumeCardMaster_ccm_UserCardPair_ucp" />
+      <nodes>
+        <classShapeMoniker Id="f3c22d5e-55c1-4603-824d-4c669fdb012f" />
+        <classShapeMoniker Id="26aa33d4-031a-428e-8d8d-70618baabd53" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="9f73cb45-6ad7-4c29-92c5-3dc221d98f60" absoluteBounds="3.125, 2.5, 2, 2.3356245930989585">
+      <DataClassMoniker Name="/SIOTSDB_HHZXDataContext/CardUserAccount_cua" />
+      <nestedChildShapes>
+        <elementListCompartment Id="55c84db3-1fd8-4237-b097-e4c9cd3c682f" absoluteBounds="3.14, 2.96, 1.9700000000000002, 1.7756245930989585" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="482f6fb8-f7e7-4ce4-a137-0711352c4e60" absoluteBounds="0.5, 0.5, 2, 1.9535852050781251">
+      <DataClassMoniker Name="/SIOTSDB_HHZXDataContext/ChangeClassRecord_ccr" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e1efbfc5-e77a-4ae7-8ac4-ee4f62a3b07f" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 1.393585205078125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.46875 : 2.45358520507813); (2.46875 : 0.905507202148438); (5.67708333333333 : 0.905507202148438); (5.67708333333333 : 8.55789428710938); (6.25 : 8.55789428710938)]" manuallyRouted="true" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SIOTSDB_HHZXDataContext/ChangeClassRecord_ccr/ChangeClassRecord_ccr_ClassMaster_csm" />
+      <nodes>
+        <classShapeMoniker Id="482f6fb8-f7e7-4ce4-a137-0711352c4e60" />
+        <classShapeMoniker Id="ede91d88-0a95-4a7d-9155-a7cae70ff7d7" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="62b824cc-0227-4231-b346-95c203437153" absoluteBounds="3.125, 5.875, 2, 2.5266442871093751">
+      <DataClassMoniker Name="/SIOTSDB_HHZXDataContext/GradeMaster_gdm" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5d22f64c-3ca2-487e-b594-4b4ff77d5f25" absoluteBounds="3.1399999999999997, 6.335, 1.9700000000000002, 1.966644287109375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.125 : 7.20082214355469); (5.59375 : 7.20082214355469 : JumpStart); (5.76041666666666 : 7.20082214355469 : JumpEnd); (6.25 : 7.20082214355469)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SIOTSDB_HHZXDataContext/GradeMaster_gdm/GradeMaster_gdm_ClassMaster_csm" />
+      <nodes>
+        <classShapeMoniker Id="62b824cc-0227-4231-b346-95c203437153" />
+        <classShapeMoniker Id="ede91d88-0a95-4a7d-9155-a7cae70ff7d7" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="43fb4140-d7ac-46e2-b4b7-0a5757837a7e" absoluteBounds="15.5, 3.125, 2, 2.1446048990885416">
+      <DataClassMoniker Name="/SIOTSDB_HHZXDataContext/SystemAccountDetail_sad" />
+      <nestedChildShapes>
+        <elementListCompartment Id="89b2232b-ade4-41c9-8989-ccb9c5b17eab" absoluteBounds="15.515, 3.585, 1.9700000000000002, 1.5846048990885415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="349f5204-54c0-4618-8015-eab17f8329b2" absoluteBounds="4.125, 20.375, 2, 2.5266442871093773">
+      <DataClassMoniker Name="/SIOTSDB_HHZXDataContext/Sys_UserPurview_usp" />
+      <nestedChildShapes>
+        <elementListCompartment Id="76a06bd2-abcf-4f78-abed-ab40b3c8185c" absoluteBounds="4.14, 20.835, 1.9700000000000002, 1.966644287109375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9b75ceb0-e997-4d51-a878-5a32026c3cb6" absoluteBounds="9.5, 16.125, 2, 3.4817427571614581">
+      <DataClassMoniker Name="/SIOTSDB_HHZXDataContext/PaymentUDMealState_pms" />
+      <nestedChildShapes>
+        <elementListCompartment Id="27cdddc8-789d-4a58-91fe-d048b7c0066c" absoluteBounds="9.515, 16.585, 1.9700000000000002, 2.921742757161458" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a4074870-5ae5-41d0-9704-e080c0e63ea6" absoluteBounds="6.875, 16.125, 2, 3.2907230631510416">
+      <DataClassMoniker Name="/SIOTSDB_HHZXDataContext/PaymentUDGeneralSetting_pus" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a48f5d17-b854-4e50-a96c-6a595914f70e" absoluteBounds="6.89, 16.585, 1.9700000000000002, 2.7307230631510415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.125 : 17.875); (3.75 : 17.5); (3.75 : 15.3152630615234); (2.875 : 15.3152630615234)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SIOTSDB_HHZXDataContext/Sys_RoleMaster_rlm/Sys_RoleMaster_rlm_Sys_UserRoles_usr" />
+      <nodes>
+        <classShapeMoniker Id="853e1c03-2d9f-4769-ba91-31a7f2e3e2eb" />
+        <classShapeMoniker Id="b500fb9f-2cc3-4026-8691-c15d8fb6dd75" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.0937475 : 20.0196048990885); (5.0937475 : 20.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SIOTSDB_HHZXDataContext/Sys_RoleMaster_rlm/Sys_RoleMaster_rlm_Sys_UserPurview_usp" />
+      <nodes>
+        <classShapeMoniker Id="853e1c03-2d9f-4769-ba91-31a7f2e3e2eb" />
+        <classShapeMoniker Id="349f5204-54c0-4618-8015-eab17f8329b2" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="f22baaa2-ca6e-499f-b4dd-e2b9c7b20bfb" absoluteBounds="4.125, 14.625, 2, 2.9086836751302081">
+      <DataClassMoniker Name="/SIOTSDB_HHZXDataContext/Sys_UserMaster_usm" />
+      <nestedChildShapes>
+        <elementListCompartment Id="12b1793d-097c-49a4-8569-da6212bd6d74" absoluteBounds="4.14, 15.085, 1.9700000000000002, 2.348683675130208" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.125 : 14.9076315307617); (2.875 : 14.9076315307617)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SIOTSDB_HHZXDataContext/Sys_UserMaster_usm/Sys_UserMaster_usm_Sys_UserRoles_usr" />
+      <nodes>
+        <classShapeMoniker Id="f22baaa2-ca6e-499f-b4dd-e2b9c7b20bfb" />
+        <classShapeMoniker Id="b500fb9f-2cc3-4026-8691-c15d8fb6dd75" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.125 : 17.5321442135917); (6.5 : 17.9071442135917); (6.5 : 20); (6.125 : 20.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SIOTSDB_HHZXDataContext/Sys_UserMaster_usm/Sys_UserMaster_usm_Sys_UserPurview_usp" />
+      <nodes>
+        <classShapeMoniker Id="f22baaa2-ca6e-499f-b4dd-e2b9c7b20bfb" />
+        <classShapeMoniker Id="349f5204-54c0-4618-8015-eab17f8329b2" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="8b1e0c90-2569-4192-bf08-4794b2d3602a" absoluteBounds="6.25, 8.875, 2, 2.5266442871093751">
+      <DataClassMoniker Name="/SIOTSDB_HHZXDataContext/SourceConsumeRecord_scr" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9edd7a04-5cd9-471b-9329-8cff993ad848" absoluteBounds="6.265, 9.335, 1.9700000000000002, 1.966644287109375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="acf76c6b-5065-417d-aa3e-5dba7d463368" absoluteBounds="12.125, 6.75, 2, 3.6727624511718746">
+      <DataClassMoniker Name="/SIOTSDB_HHZXDataContext/ConsumeMachineMaster_cmm" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1a184a83-edaf-4e17-847e-59eaa1e88a67" absoluteBounds="12.14, 7.21, 1.9700000000000002, 3.112762451171875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5a7e1e6a-8b2e-4763-b47a-fbaefe6fa116" absoluteBounds="11, 0.5, 2, 3.0997033691406251">
+      <DataClassMoniker Name="/SIOTSDB_HHZXDataContext/PreRechargeRecord_prr" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e9f156fc-5b95-4e44-9605-d73dccdb527c" absoluteBounds="11.015, 0.96, 1.9700000000000002, 2.539703369140625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0dda3557-8a82-4dd7-b47d-64a5270faccb" absoluteBounds="13.375, 1.625, 2, 3.0997033691406251">
+      <DataClassMoniker Name="/SIOTSDB_HHZXDataContext/RechargeRecord_rcr" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ef2d4bff-077b-40e8-b0b7-92f1f8b38cc3" absoluteBounds="13.39, 2.085, 1.9700000000000002, 2.539703369140625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(10.75 : 4.19345336914063); (11.5416666666667 : 4.19345336914063 : JumpStart); (11.7083333333333 : 4.19345336914063 : JumpEnd); (13.375 : 4.19345336914063)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SIOTSDB_HHZXDataContext/ConsumeCardMaster_ccm/ConsumeCardMaster_ccm_RechargeRecord_rcr" />
+      <nodes>
+        <classShapeMoniker Id="f3c22d5e-55c1-4603-824d-4c669fdb012f" />
+        <classShapeMoniker Id="0dda3557-8a82-4dd7-b47d-64a5270faccb" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="b708c8e0-4b6d-45a0-aac9-5720e2a773b6" absoluteBounds="9.125, 6.25, 2, 3.6727624511718746">
+      <DataClassMoniker Name="/SIOTSDB_HHZXDataContext/ConsumeRecord_csr" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8578fd45-3ab0-4ded-a2ee-94c5804051dd" absoluteBounds="9.14, 6.71, 1.9700000000000002, 3.112762451171875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(9.9375 : 5.01960489908854); (9.9375 : 6.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SIOTSDB_HHZXDataContext/ConsumeCardMaster_ccm/ConsumeCardMaster_ccm_ConsumeRecord_csr" />
+      <nodes>
+        <classShapeMoniker Id="f3c22d5e-55c1-4603-824d-4c669fdb012f" />
+        <classShapeMoniker Id="b708c8e0-4b6d-45a0-aac9-5720e2a773b6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(12.125 : 8.33638122558594); (11.125 : 8.33638122558594)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SIOTSDB_HHZXDataContext/ConsumeMachineMaster_cmm/ConsumeMachineMaster_cmm_ConsumeRecord_csr" />
+      <nodes>
+        <classShapeMoniker Id="acf76c6b-5065-417d-aa3e-5dba7d463368" />
+        <classShapeMoniker Id="b708c8e0-4b6d-45a0-aac9-5720e2a773b6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 9.39888122558594); (9.125 : 9.39888122558594)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SIOTSDB_HHZXDataContext/SourceConsumeRecord_scr/SourceConsumeRecord_scr_ConsumeRecord_csr" />
+      <nodes>
+        <classShapeMoniker Id="8b1e0c90-2569-4192-bf08-4794b2d3602a" />
+        <classShapeMoniker Id="b708c8e0-4b6d-45a0-aac9-5720e2a773b6" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="7af2e620-bc8c-45e6-a1a2-13d80ffa9279" absoluteBounds="9.625, 20, 2, 2.5266442871093751">
+      <DataClassMoniker Name="/SIOTSDB_HHZXDataContext/MealBookingHistory_mbh" />
+      <nestedChildShapes>
+        <elementListCompartment Id="999b7e64-f351-4b36-b2ad-4b0e951162d6" absoluteBounds="9.64, 20.46, 1.9700000000000002, 1.966644287109375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c3e806d1-5bc3-42f7-b980-79d4db9fbbd3" absoluteBounds="12.125, 20, 2, 3.2907230631510416">
+      <DataClassMoniker Name="/SIOTSDB_HHZXDataContext/TimeIntervalMaster_tim" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f3545cd1-62ce-48d3-8ace-d1552f58477c" absoluteBounds="12.14, 20.46, 1.9700000000000002, 2.7307230631510415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c9f94a36-281d-4f45-894d-2daa57cfe723" isExpanded="false" absoluteBounds="7, 23.625, 2, 0.45">
+      <DataClassMoniker Name="/SIOTSDB_HHZXDataContext/BlacklistChangeRecord_blc" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f8a691d3-e709-4e6c-95b5-561815de34e3" absoluteBounds="7.015, 24.085, 1.9700000000000002, 1.7756245930989585" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b0f3b2d7-507c-40a4-96c2-ad5f28ca1ae0" isExpanded="false" absoluteBounds="0.875, 20.25, 2, 0.45">
+      <DataClassMoniker Name="/SIOTSDB_HHZXDataContext/Sys_FormMaster_fom" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fd7ed175-088a-492e-91c1-a39439fcc57b" absoluteBounds="0.89000000000000012, 20.71, 1.9700000000000002, 3.112762451171875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(0.875 : 20.25); (0.5 : 19.875); (0.5 : 18.5715458170573); (0.875 : 18.1965458170573)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SIOTSDB_HHZXDataContext/Sys_FormMaster_fom/Sys_FormMaster_fom_Sys_FormPurview_frp" />
+      <nodes>
+        <classShapeMoniker Id="b0f3b2d7-507c-40a4-96c2-ad5f28ca1ae0" />
+        <classShapeMoniker Id="17ffcdb1-7588-4b3f-98c8-48b3db9e6be1" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="d3572bb6-df4d-432a-bca2-88cdc0ae630a" absoluteBounds="15.375, 6.5, 2, 2.9086836751302081">
+      <DataClassMoniker Name="/SIOTSDB_HHZXDataContext/PreConsumeRecord_pcs" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c7703500-dc90-4958-b737-e8577dbeed49" absoluteBounds="15.39, 6.96, 1.9700000000000002, 2.348683675130208" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.125 : 3.66781229654948); (5.59375 : 3.66781229654948 : JumpStart); (5.76041666666666 : 3.66781229654948 : JumpEnd); (5.875 : 3.66781229654948); (5.875 : 5.51960489908854); (8.13541666666667 : 5.51960489908854 : JumpStart); (8.30208333333333 : 5.51960489908854 : JumpEnd); (8.82291666666667 : 5.51960489908854 : JumpStart); (8.98958333333333 : 5.51960489908854 : JumpEnd); (9.85416666666667 : 5.51960489908854 : JumpStart); (10.0208333333333 : 5.51960489908854 : JumpEnd); (11.5416666666667 : 5.51960489908854 : JumpStart); (11.7083333333333 : 5.51960489908854 : JumpEnd); (16.375 : 5.51960489908854); (16.375 : 6.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SIOTSDB_HHZXDataContext/CardUserAccount_cua/CardUserAccount_cua_PreConsumeRecord_pcs" />
+      <nodes>
+        <classShapeMoniker Id="9f73cb45-6ad7-4c29-92c5-3dc221d98f60" />
+        <classShapeMoniker Id="d3572bb6-df4d-432a-bca2-88cdc0ae630a" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="9ca226fb-95c1-40ea-b4b7-2a4e50c48e57" absoluteBounds="6.125, 1.75, 2, 2.1446048990885416">
+      <DataClassMoniker Name="/SIOTSDB_HHZXDataContext/CardUserAccountDetail_cuad" />
+      <nestedChildShapes>
+        <elementListCompartment Id="08c6a4f9-b53a-43a1-81a4-9d445257241c" absoluteBounds="6.14, 2.21, 1.9700000000000002, 1.5846048990885415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.125 : 3.02140614827474); (5.59375 : 3.02140614827474 : JumpStart); (5.76041666666666 : 3.02140614827474 : JumpEnd); (6.125 : 3.02140614827474)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SIOTSDB_HHZXDataContext/CardUserAccount_cua/CardUserAccount_cua_CardUserAccountDetail_cuad" />
+      <nodes>
+        <classShapeMoniker Id="9f73cb45-6ad7-4c29-92c5-3dc221d98f60" />
+        <classShapeMoniker Id="9ca226fb-95c1-40ea-b4b7-2a4e50c48e57" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="f9312827-7529-490c-ac84-669afa048be7" absoluteBounds="0.625, 3.125, 2, 4.2458215332031246">
+      <DataClassMoniker Name="/SIOTSDB_HHZXDataContext/CardUserMaster_cus" />
+      <nestedChildShapes>
+        <elementListCompartment Id="62fcfb33-cad0-4f90-933b-e7ba7c6a22e3" absoluteBounds="0.64, 3.585, 1.9700000000000002, 3.685821533203125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.625 : 5.20886474609375); (5.59375 : 5.20886474609375 : JumpStart); (5.76041666666666 : 5.20886474609375 : JumpEnd); (5.79166666666667 : 5.20886474609375 : JumpStart); (5.95833333333333 : 5.20886474609375 : JumpEnd); (8.21875 : 5.20886474609375); (8.21875 : 6)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SIOTSDB_HHZXDataContext/CardUserMaster_cus/CardUserMaster_cus_ClassMaster_csm" />
+      <nodes>
+        <classShapeMoniker Id="f9312827-7529-490c-ac84-669afa048be7" />
+        <classShapeMoniker Id="ede91d88-0a95-4a7d-9155-a7cae70ff7d7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.5624995 : 7.37082153320312); (1.5624995 : 12.5498516845703); (2.5 : 12.5498516845703)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SIOTSDB_HHZXDataContext/CardUserMaster_cus/CardUserMaster_cus_UserCardPair_ucp" />
+      <nodes>
+        <classShapeMoniker Id="f9312827-7529-490c-ac84-669afa048be7" />
+        <classShapeMoniker Id="26aa33d4-031a-428e-8d8d-70618baabd53" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.625 : 3.98031229654948); (3.125 : 3.98031229654948)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SIOTSDB_HHZXDataContext/CardUserMaster_cus/CardUserMaster_cus_CardUserAccount_cua" />
+      <nodes>
+        <classShapeMoniker Id="f9312827-7529-490c-ac84-669afa048be7" />
+        <classShapeMoniker Id="9f73cb45-6ad7-4c29-92c5-3dc221d98f60" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.625 : 6.62291076660156); (3.125 : 6.62291076660156)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SIOTSDB_HHZXDataContext/CardUserMaster_cus/CardUserMaster_cus_GradeMaster_gdm" />
+      <nodes>
+        <classShapeMoniker Id="f9312827-7529-490c-ac84-669afa048be7" />
+        <classShapeMoniker Id="62b824cc-0227-4231-b346-95c203437153" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.625 : 5.66605244954427); (5.59375 : 5.66605244954427 : JumpStart); (5.76041666666666 : 5.66605244954427 : JumpEnd); (8.13541666666667 : 5.66605244954427 : JumpStart); (8.30208333333333 : 5.66605244954427 : JumpEnd); (8.82291666666667 : 5.66605244954427 : JumpStart); (8.98958333333333 : 5.66605244954427 : JumpEnd); (9.85416666666667 : 5.66605244954427 : JumpStart); (10.0208333333333 : 5.66605244954427 : JumpEnd); (11.625 : 5.66605244954427); (11.625 : 3.59970336914063)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SIOTSDB_HHZXDataContext/CardUserMaster_cus/CardUserMaster_cus_PreRechargeRecord_prr" />
+      <nodes>
+        <classShapeMoniker Id="f9312827-7529-490c-ac84-669afa048be7" />
+        <classShapeMoniker Id="5a7e1e6a-8b2e-4763-b47a-fbaefe6fa116" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.625 : 5.39548732259114); (5.59375 : 5.39548732259114 : JumpStart); (5.76041666666666 : 5.39548732259114 : JumpEnd); (5.79166666666667 : 5.39548732259114 : JumpStart); (5.95833333333333 : 5.39548732259114 : JumpEnd); (8.13541666666667 : 5.39548732259114 : JumpStart); (8.30208333333333 : 5.39548732259114 : JumpEnd); (8.82291666666667 : 5.39548732259114 : JumpStart); (8.98958333333333 : 5.39548732259114 : JumpEnd); (9.85416666666667 : 5.39548732259114 : JumpStart); (10.0208333333333 : 5.39548732259114 : JumpEnd); (11.5416666666667 : 5.39548732259114 : JumpStart); (11.7083333333333 : 5.39548732259114 : JumpEnd); (14.75 : 5.39548732259114); (14.75 : 4.72470336914063)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SIOTSDB_HHZXDataContext/CardUserMaster_cus/CardUserMaster_cus_RechargeRecord_rcr" />
+      <nodes>
+        <classShapeMoniker Id="f9312827-7529-490c-ac84-669afa048be7" />
+        <classShapeMoniker Id="0dda3557-8a82-4dd7-b47d-64a5270faccb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.625 : 5.77052872477213); (5.59375 : 5.77052872477213 : JumpStart); (5.76041666666666 : 5.77052872477213 : JumpEnd); (8.13541666666667 : 5.77052872477213 : JumpStart); (8.30208333333333 : 5.77052872477213 : JumpEnd); (8.82291666666667 : 5.77052872477213 : JumpStart); (8.98958333333333 : 5.77052872477213 : JumpEnd); (9.85416666666667 : 5.77052872477213 : JumpStart); (10.0208333333333 : 5.77052872477213 : JumpEnd); (10.875 : 5.77052872477213); (10.875 : 6.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SIOTSDB_HHZXDataContext/CardUserMaster_cus/CardUserMaster_cus_ConsumeRecord_csr" />
+      <nodes>
+        <classShapeMoniker Id="f9312827-7529-490c-ac84-669afa048be7" />
+        <classShapeMoniker Id="b708c8e0-4b6d-45a0-aac9-5720e2a773b6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.625 : 5.53076988606771); (5.59375 : 5.53076988606771 : JumpStart); (5.76041666666666 : 5.53076988606771 : JumpEnd); (8.13541666666667 : 5.53076988606771 : JumpStart); (8.30208333333333 : 5.53076988606771 : JumpEnd); (8.82291666666667 : 5.53076988606771 : JumpStart); (8.98958333333333 : 5.53076988606771 : JumpEnd); (9.85416666666667 : 5.53076988606771 : JumpStart); (10.0208333333333 : 5.53076988606771 : JumpEnd); (11.5416666666667 : 5.53076988606771 : JumpStart); (11.7083333333333 : 5.53076988606771 : JumpEnd); (15.25 : 5.53076988606771); (15.25 : 5.76960489908854); (16.375 : 5.76960489908854); (16.375 : 6.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SIOTSDB_HHZXDataContext/CardUserMaster_cus/CardUserMaster_cus_PreConsumeRecord_pcs" />
+      <nodes>
+        <classShapeMoniker Id="f9312827-7529-490c-ac84-669afa048be7" />
+        <classShapeMoniker Id="d3572bb6-df4d-432a-bca2-88cdc0ae630a" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="f19f0593-338b-466b-9e9e-2f9e12c031ea" absoluteBounds="6.875, 20.375, 2, 2.9086836751302081">
+      <DataClassMoniker Name="/SIOTSDB_HHZXDataContext/PayRecord_prd" />
+      <nestedChildShapes>
+        <elementListCompartment Id="272b8529-712d-461b-b243-e5a767561d66" absoluteBounds="6.89, 20.835, 1.9700000000000002, 2.348683675130208" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

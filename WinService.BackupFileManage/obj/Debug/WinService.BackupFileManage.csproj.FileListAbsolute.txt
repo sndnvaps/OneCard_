@@ -1,0 +1,8 @@
+D:\SIOTS_HHZX\SIOTS_HHZX\WinService.BackupFileManage\bin\Debug\WinService.BackupFileManage.exe.config
+D:\SIOTS_HHZX\SIOTS_HHZX\WinService.BackupFileManage\bin\Debug\WinService.BackupFileManage.exe
+D:\SIOTS_HHZX\SIOTS_HHZX\WinService.BackupFileManage\bin\Debug\WinService.BackupFileManage.pdb
+D:\SIOTS_HHZX\SIOTS_HHZX\WinService.BackupFileManage\obj\Debug\ResolveAssemblyReference.cache
+D:\SIOTS_HHZX\SIOTS_HHZX\WinService.BackupFileManage\obj\Debug\WinService.BackupFileManage.ProjectInstaller.resources
+D:\SIOTS_HHZX\SIOTS_HHZX\WinService.BackupFileManage\obj\Debug\WinService.BackupFileManage.csproj.GenerateResource.Cache
+D:\SIOTS_HHZX\SIOTS_HHZX\WinService.BackupFileManage\obj\Debug\WinService.BackupFileManage.exe
+D:\SIOTS_HHZX\SIOTS_HHZX\WinService.BackupFileManage\obj\Debug\WinService.BackupFileManage.pdb

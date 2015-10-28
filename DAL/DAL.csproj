@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8D01BD63-8F37-41AC-A0D9-CAF7DAB31283}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DAL</RootNamespace>
+    <AssemblyName>DAL</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccessDAL\DataAccessLayer.cs" />
+    <Compile Include="AccessDAL\LocalLayer\DataBaseCommand.cs" />
+    <Compile Include="AccessDAL\LocalLayer\LocalDefine.cs" />
+    <Compile Include="AccessDAL\Master\DeptMasterDA.cs" />
+    <Compile Include="AccessDAL\Base\CodeMasterDA.cs" />
+    <Compile Include="AccessDAL\Base\SystemGeneralDA.cs" />
+    <Compile Include="AccessDAL\Base\UserInformationDA.cs" />
+    <Compile Include="Constant.cs" />
+    <Compile Include="DbHelperSQL.cs" />
+    <Compile Include="Factory\Base\SystemMenuDALFactory.cs" />
+    <Compile Include="Factory\General\GeneralDAFactory.cs" />
+    <Compile Include="IDAL\HHZX\ConsumeAccount\ICardUserAccountDA.cs" />
+    <Compile Include="IDAL\HHZX\ConsumeAccount\ICardUserAccountDetailDA.cs" />
+    <Compile Include="IDAL\HHZX\ConsumeAccount\IConsumeRecordDA.cs" />
+    <Compile Include="IDAL\HHZX\ConsumeAccount\IPreConsumeRecordDA.cs" />
+    <Compile Include="IDAL\HHZX\ConsumeAccount\IPreRechargeRecordDA.cs" />
+    <Compile Include="IDAL\HHZX\ConsumeAccount\IRechargeRecordDA.cs" />
+    <Compile Include="IDAL\HHZX\ConsumeAccount\ISourceConsumeRecordDA.cs" />
+    <Compile Include="IDAL\HHZX\ConsumeAccount\ISystemAccountDetailDA.cs" />
+    <Compile Include="IDAL\HHZX\ConsumerDevice\IConsumeMachineDA.cs" />
+    <Compile Include="IDAL\HHZX\MealBooking\IBlacklistChangeRecordDA.cs" />
+    <Compile Include="IDAL\HHZX\MealBooking\IMealBookingHistoryDA.cs" />
+    <Compile Include="IDAL\HHZX\MealBooking\IPaymentUDGeneralSettingDA.cs" />
+    <Compile Include="IDAL\HHZX\MealBooking\IPaymentUDMealStateDA.cs" />
+    <Compile Include="IDAL\HHZX\UserCard\IUserCardPairDA.cs" />
+    <Compile Include="IDAL\HHZX\UserInformation\CardUserInfo\ICardUserMasterDA.cs" />
+    <Compile Include="IDAL\HHZX\UserInformation\CardUserInfo\IClassMasterDA.cs" />
+    <Compile Include="IDAL\HHZX\UserInformation\CardUserInfo\IGradeMasterDA.cs" />
+    <Compile Include="IDAL\HHZX\UserInformation\SysUserInfo\IUserMasterDA.cs" />
+    <Compile Include="IDAL\HHZX\UserCard\IConsumeCardMasterDA.cs" />
+    <Compile Include="IDAL\IMainGeneralDA.cs" />
+    <Compile Include="IDAL\Report\IAccoumtBalanceDA.cs" />
+    <Compile Include="IDAL\Report\ICardFeeSummaryDA.cs" />
+    <Compile Include="IDAL\Report\IDeductionBalanceDA.cs" />
+    <Compile Include="IDAL\Report\IDepositSummaryDA.cs" />
+    <Compile Include="IDAL\Report\IMealBookingDA.cs" />
+    <Compile Include="IDAL\Report\IMoneyBalanceDA.cs" />
+    <Compile Include="IDAL\Report\IPaymentBalanceDA.cs" />
+    <Compile Include="IDAL\Report\IPayRecordDA.cs" />
+    <Compile Include="IDAL\Report\IStudentCostSummaryDA.cs" />
+    <Compile Include="IDAL\SysMaster\ICodeMasterDA.cs" />
+    <Compile Include="SqlDAL\HHZX\ConsumeAccount\CardUserAccountDA.cs" />
+    <Compile Include="SqlDAL\HHZX\ConsumeAccount\CardUserAccountDetailDA.cs" />
+    <Compile Include="SqlDAL\HHZX\ConsumeAccount\ConsumeRecordDA.cs" />
+    <Compile Include="SqlDAL\HHZX\ConsumeAccount\PreConsumeRecordDA.cs" />
+    <Compile Include="SqlDAL\HHZX\ConsumeAccount\PreRechargeRecordDA.cs" />
+    <Compile Include="SqlDAL\HHZX\ConsumeAccount\RechargeRecordDA.cs" />
+    <Compile Include="SqlDAL\HHZX\ConsumeAccount\SourceConsumeRecordDA.cs" />
+    <Compile Include="SqlDAL\HHZX\ConsumeAccount\SystemAccountDetailDA.cs" />
+    <Compile Include="SqlDAL\HHZX\ConsumerDevice\ConsumeMachineDA.cs" />
+    <Compile Include="SqlDAL\HHZX\MealBooking\BlacklistChangeRecordDA.cs" />
+    <Compile Include="SqlDAL\HHZX\MealBooking\MealBookingHistoryDA.cs" />
+    <Compile Include="SqlDAL\HHZX\MealBooking\PaymentUDGeneralSettingDA.cs" />
+    <Compile Include="SqlDAL\HHZX\MealBooking\PaymentUDMealStateDA.cs" />
+    <Compile Include="SqlDAL\HHZX\Report\AccoumtBalanceDA.cs" />
+    <Compile Include="SqlDAL\HHZX\Report\CardFeeSummaryDA.cs" />
+    <Compile Include="SqlDAL\HHZX\Report\DeductionBalanceDA.cs" />
+    <Compile Include="SqlDAL\HHZX\Report\DepositSummaryDA.cs" />
+    <Compile Include="SqlDAL\HHZX\Report\MealBookingDA.cs" />
+    <Compile Include="SqlDAL\HHZX\Report\MoneyBalanceDA.cs" />
+    <Compile Include="SqlDAL\HHZX\Report\PaymentBalanceDA.cs" />
+    <Compile Include="SqlDAL\HHZX\Report\PayRecordDA.cs" />
+    <Compile Include="SqlDAL\HHZX\Report\StudentCostSummaryDA.cs" />
+    <Compile Include="SqlDAL\HHZX\UserCard\UserCardPairDA.cs" />
+    <Compile Include="SqlDAL\HHZX\UserInformation\CardUserInfo\CardUserMasterDA.cs" />
+    <Compile Include="SqlDAL\HHZX\UserInformation\CardUserInfo\ClassMasterDA.cs" />
+    <Compile Include="SqlDAL\HHZX\UserInformation\CardUserInfo\DepartmentMasterDA.cs" />
+    <Compile Include="Factory\HHZX\MasterDAFactory.cs" />
+    <Compile Include="Factory\SysFunction\SysDALFactory.cs" />
+    <Compile Include="Factory\SysMaster\MasterDAFactory.cs" />
+    <Compile Include="General\DynamicSorting.cs" />
+    <Compile Include="IDAL\HHZX\UserInformation\CardUserInfo\IDepartmentMasterDA.cs" />
+    <Compile Include="IDAL\SysFunction\ILogDetailDA.cs" />
+    <Compile Include="IDAL\SysMaster\IDepartmentMasterDA.cs" />
+    <Compile Include="IDAL\SysMaster\ILoginFormDA.cs" />
+    <Compile Include="IDAL\SysMaster\ISupplierMasterDA.cs" />
+    <Compile Include="IDAL\SysMaster\ISysFormMasterDA.cs" />
+    <Compile Include="IDAL\SysMaster\ISysFunctionMasterDA.cs" />
+    <Compile Include="IDAL\SysMaster\ISysRoleMasterDA.cs" />
+    <Compile Include="IDAL\SysMaster\ISysUserMasterDA.cs" />
+    <Compile Include="IDAL\SysMaster\IUserPurviewDA.cs" />
+    <Compile Include="IDAL\SysMaster\Web_IUserMasterPwdDA.cs" />
+    <Compile Include="LocalDefine\Base\DataDictionary.cs" />
+    <Compile Include="LocalDefine\LocalGeneralMenu.cs" />
+    <Compile Include="SqlDAL\Base\SystemMenuDA.cs" />
+    <Compile Include="SqlDAL\General\GeneralDA.cs" />
+    <Compile Include="SqlDAL\HHZX\UserInformation\CardUserInfo\GradeMasterDA.cs" />
+    <Compile Include="SqlDAL\HHZX\UserInformation\SysUserInfo\UserMasterDA.cs" />
+    <Compile Include="SqlDAL\HHZX\UserCard\ConsumeCardMasterDA.cs" />
+    <Compile Include="SqlDAL\LocalLayer\LocalGeneral.cs" />
+    <Compile Include="SqlDAL\SysFunction\LogDetailDA.cs" />
+    <Compile Include="SqlDAL\SysFunction\SysUserMasterDA.cs" />
+    <Compile Include="Factory\DataBaseType.cs" />
+    <Compile Include="Factory\FactoryLayerDefine.cs" />
+    <Compile Include="Factory\Master\MasterDAFactory.cs" />
+    <Compile Include="Factory\Base\CodeMasterDAFactory.cs" />
+    <Compile Include="IDAL\General\IGeneralDA.cs" />
+    <Compile Include="IDAL\IExtraDA.cs" />
+    <Compile Include="IDAL\Master\IClientMasterDA.cs" />
+    <Compile Include="IDAL\Master\IDeptMasterDA.cs" />
+    <Compile Include="IDAL\Base\ICodeMasterDA.cs" />
+    <Compile Include="IDAL\IDataBaseCommandDA.cs" />
+    <Compile Include="IDAL\IMainDA.cs" />
+    <Compile Include="IDAL\Base\ISystemGeneralDA.cs" />
+    <Compile Include="IDAL\Base\ISystemMenuDA.cs" />
+    <Compile Include="IDAL\Base\IUserInformationDA.cs" />
+    <Compile Include="IDAL\SysFunction\ISysUserMasterDA.cs" />
+    <Compile Include="LocalDefine\General.cs" />
+    <Compile Include="LocalDefine\GeneralDefine.cs" />
+    <Compile Include="SqlDAL\DataAccessLayer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlDAL\LocalLayer\DataBaseCommand.cs" />
+    <Compile Include="SqlDAL\LocalLayer\LocalDefine.cs" />
+    <Compile Include="SqlDAL\Master\ClientMasterDA.cs" />
+    <Compile Include="SqlDAL\Master\DeptMasterDA.cs" />
+    <Compile Include="SqlDAL\Base\CodeMasterDA.cs" />
+    <Compile Include="SqlDAL\Base\UserInformationDA.cs" />
+    <Compile Include="SqlDAL\SysMaster\CodeMasterDA.cs" />
+    <Compile Include="SqlDAL\SysMaster\LoginFormDA.cs" />
+    <Compile Include="SqlDAL\SysMaster\SysFormMasterDA.cs" />
+    <Compile Include="SqlDAL\SysMaster\SysFunctionMasterDA.cs" />
+    <Compile Include="SqlDAL\SysMaster\SysRoleMasterDA.cs" />
+    <Compile Include="SqlDAL\SysMaster\SysUserMasterDA.cs" />
+    <Compile Include="SqlDAL\SysMaster\UserPurviewDA.cs" />
+    <Compile Include="SqlDAL\SysMaster\Web_UserMasterPwdDA.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{CBC14F8C-690A-48C4-852D-8266FE39389D}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\General\ReaderEquipment\ReaderEquipment.csproj">
+      <Project>{6F8BC23D-298D-494D-A99D-8AF410B81678}</Project>
+      <Name>ReaderEquipment</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceManage\ServiceManage.csproj">
+      <Project>{18909E94-EACE-4E8D-A8CA-90044DF033DC}</Project>
+      <Name>ServiceManage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LinqToSQLModel\LinqToSQLModel.csproj">
+      <Project>{999AA021-B8B6-4A0E-9277-1D2BB08030C0}</Project>
+      <Name>LinqToSQLModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{ECD86F7B-7213-48DC-93AD-1F378AB2E577}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

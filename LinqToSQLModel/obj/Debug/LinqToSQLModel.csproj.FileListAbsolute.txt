@@ -1,0 +1,12 @@
+D:\SIOTS_HHZX\SIOTS_HHZX\LinqToSQLModel\bin\Debug\LinqToSQLModel.dll.config
+D:\SIOTS_HHZX\SIOTS_HHZX\LinqToSQLModel\bin\Debug\LinqToSQLModel.dll
+D:\SIOTS_HHZX\SIOTS_HHZX\LinqToSQLModel\bin\Debug\LinqToSQLModel.pdb
+D:\SIOTS_HHZX\SIOTS_HHZX\LinqToSQLModel\obj\Debug\ResolveAssemblyReference.cache
+D:\SIOTS_HHZX\SIOTS_HHZX\LinqToSQLModel\obj\Debug\LinqToSQLModel.dll
+D:\SIOTS_HHZX\SIOTS_HHZX\LinqToSQLModel\obj\Debug\LinqToSQLModel.pdb
+E:\SIOTS_HHZX\SIOTS_HHZX\LinqToSQLModel\bin\Debug\LinqToSQLModel.dll.config
+E:\SIOTS_HHZX\SIOTS_HHZX\LinqToSQLModel\bin\Debug\LinqToSQLModel.dll
+E:\SIOTS_HHZX\SIOTS_HHZX\LinqToSQLModel\bin\Debug\LinqToSQLModel.pdb
+E:\SIOTS_HHZX\SIOTS_HHZX\LinqToSQLModel\obj\Debug\ResolveAssemblyReference.cache
+E:\SIOTS_HHZX\SIOTS_HHZX\LinqToSQLModel\obj\Debug\LinqToSQLModel.dll
+E:\SIOTS_HHZX\SIOTS_HHZX\LinqToSQLModel\obj\Debug\LinqToSQLModel.pdb

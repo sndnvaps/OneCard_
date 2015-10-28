@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetUKeyCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Uid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Pwd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUKeyCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUKeyCodeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetUKeyCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUKeyCode" />
+  </wsdl:message>
+  <wsdl:message name="GetUKeyCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUKeyCodeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceUKeyRemoteSoap">
+    <wsdl:operation name="GetUKeyCode">
+      <wsdl:input message="tns:GetUKeyCodeSoapIn" />
+      <wsdl:output message="tns:GetUKeyCodeSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceUKeyRemoteSoap" type="tns:ServiceUKeyRemoteSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUKeyCode">
+      <soap:operation soapAction="http://tempuri.org/GetUKeyCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceUKeyRemoteSoap12" type="tns:ServiceUKeyRemoteSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUKeyCode">
+      <soap12:operation soapAction="http://tempuri.org/GetUKeyCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceUKeyRemote">
+    <wsdl:port name="ServiceUKeyRemoteSoap" binding="tns:ServiceUKeyRemoteSoap">
+      <soap:address location="http://192.168.1.120:8022/ServiceUKeyRemote.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceUKeyRemoteSoap12" binding="tns:ServiceUKeyRemoteSoap12">
+      <soap12:address location="http://192.168.1.120:8022/ServiceUKeyRemote.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

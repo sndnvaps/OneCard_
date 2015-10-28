@@ -1,0 +1,11 @@
+<publishData>
+  <publishTarget publishUrl="D:\WebService\UKeyRemote\">
+    <file relUrl="bin/WebService.UKeyRemote.pdb" publishTime="09/09/2013 13:56:10" />
+    <file relUrl="bin/UKey.dll" publishTime="09/09/2013 13:56:10" />
+    <file relUrl="ServiceUKeyRemote.asmx" publishTime="09/09/2013 13:52:04" />
+    <file relUrl="bin/WebService.UKeyRemote.dll" publishTime="09/09/2013 13:56:10" />
+    <file relUrl="bin/UKey.pdb" publishTime="09/09/2013 13:56:10" />
+    <file relUrl="bin/DLL/NT119.dll" publishTime="08/01/2013 14:39:23" />
+    <file relUrl="Web.config" publishTime="09/09/2013 13:46:03" />
+  </publishTarget>
+</publishData>
