@@ -8,3 +8,13 @@ D:\Projects\SVN\HHZX\SIOTS_HHZX\Common\bin\x86\Debug\Microsoft.Vbe.Interop.dll
 D:\Projects\SVN\HHZX\SIOTS_HHZX\Common\obj\x86\Debug\ResolveAssemblyReference.cache
 D:\Projects\SVN\HHZX\SIOTS_HHZX\Common\obj\x86\Debug\Common.dll
 D:\Projects\SVN\HHZX\SIOTS_HHZX\Common\obj\x86\Debug\Common.pdb
+D:\SVN\SIOTS_HHZX\SIOTS_HHZX\Common\bin\x86\Debug\Common.dll.config
+D:\SVN\SIOTS_HHZX\SIOTS_HHZX\Common\bin\x86\Debug\Common.dll
+D:\SVN\SIOTS_HHZX\SIOTS_HHZX\Common\bin\x86\Debug\Common.pdb
+D:\SVN\SIOTS_HHZX\SIOTS_HHZX\Common\bin\x86\Debug\Microsoft.Office.Interop.Excel.dll
+D:\SVN\SIOTS_HHZX\SIOTS_HHZX\Common\bin\x86\Debug\Office.dll
+D:\SVN\SIOTS_HHZX\SIOTS_HHZX\Common\bin\x86\Debug\SystemLog.dll
+D:\SVN\SIOTS_HHZX\SIOTS_HHZX\Common\bin\x86\Debug\Microsoft.Vbe.Interop.dll
+D:\SVN\SIOTS_HHZX\SIOTS_HHZX\Common\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\SVN\SIOTS_HHZX\SIOTS_HHZX\Common\obj\x86\Debug\Common.dll
+D:\SVN\SIOTS_HHZX\SIOTS_HHZX\Common\obj\x86\Debug\Common.pdb

@@ -4,3 +4,9 @@ D:\Projects\SVN\HHZX\SIOTS_HHZX\LinqToSQLModel\bin\x86\Debug\LinqToSQLModel.pdb
 D:\Projects\SVN\HHZX\SIOTS_HHZX\LinqToSQLModel\obj\x86\Debug\ResolveAssemblyReference.cache
 D:\Projects\SVN\HHZX\SIOTS_HHZX\LinqToSQLModel\obj\x86\Debug\LinqToSQLModel.dll
 D:\Projects\SVN\HHZX\SIOTS_HHZX\LinqToSQLModel\obj\x86\Debug\LinqToSQLModel.pdb
+D:\SVN\SIOTS_HHZX\SIOTS_HHZX\LinqToSQLModel\bin\x86\Debug\LinqToSQLModel.dll.config
+D:\SVN\SIOTS_HHZX\SIOTS_HHZX\LinqToSQLModel\bin\x86\Debug\LinqToSQLModel.dll
+D:\SVN\SIOTS_HHZX\SIOTS_HHZX\LinqToSQLModel\bin\x86\Debug\LinqToSQLModel.pdb
+D:\SVN\SIOTS_HHZX\SIOTS_HHZX\LinqToSQLModel\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\SVN\SIOTS_HHZX\SIOTS_HHZX\LinqToSQLModel\obj\x86\Debug\LinqToSQLModel.dll
+D:\SVN\SIOTS_HHZX\SIOTS_HHZX\LinqToSQLModel\obj\x86\Debug\LinqToSQLModel.pdb
