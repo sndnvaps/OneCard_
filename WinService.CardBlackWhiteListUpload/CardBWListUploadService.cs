@@ -225,33 +225,9 @@ namespace WinService.CardBlackWhiteListUpload
         {
             try
             {
-                //if (DateTime.Now >= DateTime.Parse("00:00") && DateTime.Now <= DateTime.Parse("00:30"))
-                //{
-                //    //清空当前时段信息
-                //    this._LocalLogger.WriteLog("进入待机时段。" + DateTime.Now.ToString("yyyy-MM-dd"), string.Empty, SystemLog.SystemLog.LogType.Trace);
-                //    if (this._CurrentStartSpan != TimeSpan.Parse("00:00"))
-                //    {
-                //        this._LocalLogger.WriteLog("清空时段信息。" + DateTime.Now.ToString("yyyy-MM-dd"), string.Empty, SystemLog.SystemLog.LogType.Trace);
-                //        this._CurrentStartSpan = TimeSpan.Parse("00:00");
-                //        this._CurrentEndSpan = TimeSpan.Parse("00:01");
-                //    }
-                //}
-                //else
-                //{
-                //    if (!_IsCollectting)
-                //    {
-                //        bool res = GetCollectionInterval();
-                //        if (res)
-                //        {
-                //            UploadMealList();
-                //        }
-
-                //    }
-                //}
-
                 if (!_IsCollectting)
                 {
-                    UploadBLOpt();
+                    UploadCardNoOpt();
                 }
             }
             catch (Exception ex)
@@ -572,10 +548,8 @@ namespace WinService.CardBlackWhiteListUpload
         /// <summary>
         /// 上传普通黑名单
         /// </summary>
-        void UploadBLOpt()
+        void UploadCardNoOpt()
         {
-            #region 非集中挂失停餐名单时段内
-
             this._IsCollectting = true;
 
             try
@@ -603,27 +577,30 @@ namespace WinService.CardBlackWhiteListUpload
                 }
                 #endregion
 
-                #region 获取普通黑名单操作记录
-                List<BlacklistChangeRecord_blc_Info> listBlacklist = this._IBlacklistChangeRecordBL.AllRecords();
-                if (listBlacklist == null)
+                #region 获取普通黑白名单操作记录
+                List<BlacklistChangeRecord_blc_Info> listBlackWhitelist = this._IBlacklistChangeRecordBL.AllRecords();
+                if (listBlackWhitelist == null)
                 {
-                    this._LocalLogger.WriteLog("搜寻黑名单操作记录时出现异。" + DateTime.Now.ToString(), string.Empty, SystemLog.SystemLog.LogType.Error);
+                    this._LocalLogger.WriteLog("搜寻黑白名单操作记录时出现异。" + DateTime.Now.ToString(), string.Empty, SystemLog.SystemLog.LogType.Error);
                     this._IsCollectting = false;
                     return;
                 }
 
-                if (listBlacklist != null && listBlacklist.Count < 1)
+                if (listBlackWhitelist != null && listBlackWhitelist.Count < 1)
                 {
                     this._IsCollectting = false;
                     return;
                 }
                 #endregion
 
-                #region 操作黑名单
-                List<BlacklistChangeRecord_blc_Info> listAdd = new List<BlacklistChangeRecord_blc_Info>();
-                List<BlacklistChangeRecord_blc_Info> listRemove = new List<BlacklistChangeRecord_blc_Info>();
+                #region 操作黑白名单
+                List<BlacklistChangeRecord_blc_Info> listAddBlacklist = new List<BlacklistChangeRecord_blc_Info>();//新增的黑名单
+                List<BlacklistChangeRecord_blc_Info> listRemoveBalcklist = new List<BlacklistChangeRecord_blc_Info>();//移出的黑名单
+                List<BlacklistChangeRecord_blc_Info> listAddWhitelist = new List<BlacklistChangeRecord_blc_Info>();//新增的白名单
+                List<BlacklistChangeRecord_blc_Info> listRemoveWhitelist = new List<BlacklistChangeRecord_blc_Info>();//移出的白名单
+
                 //按卡号进行黑名单操作分组，每组只取最新操作
-                var groupForCard = listBlacklist.GroupBy(x => x.blc_iCardNo);
+                var groupForCard = listBlackWhitelist.GroupBy(x => x.blc_iCardNo);
                 foreach (var cardGroupItem in groupForCard)
                 {
                     int iCardNo = cardGroupItem.Key;
@@ -631,15 +608,25 @@ namespace WinService.CardBlackWhiteListUpload
                     BlacklistChangeRecord_blc_Info blOptInfo = cardGroupItem.OrderByDescending(x => x.blc_dAddDate).FirstOrDefault();
                     if (blOptInfo != null)
                     {
-                        if (blOptInfo.blc_cOperation == Common.DefineConstantValue.EnumBlacklistCardOpt.AddList.ToString())
+                        if (blOptInfo.blc_cOperation == Common.DefineConstantValue.EnumCardUploadListOpt.AddBlackList.ToString())
                         {
                             //收集挂失黑名单
-                            listAdd.Add(blOptInfo);
+                            listAddBlacklist.Add(blOptInfo);
                         }
-                        else if (blOptInfo.blc_cOperation == Common.DefineConstantValue.EnumBlacklistCardOpt.RemoveList.ToString())
+                        else if (blOptInfo.blc_cOperation == Common.DefineConstantValue.EnumCardUploadListOpt.RemoveBlackList.ToString())
                         {
                             //收集解挂黑名单
-                            listRemove.Add(blOptInfo);
+                            listRemoveBalcklist.Add(blOptInfo);
+                        }
+                        else if (blOptInfo.blc_cOperation == Common.DefineConstantValue.EnumCardUploadListOpt.AddWhiteList.ToString())
+                        {
+                            //收集新增白名单
+                            listAddWhitelist.Add(blOptInfo);
+                        }
+                        else if (blOptInfo.blc_cOperation == Common.DefineConstantValue.EnumCardUploadListOpt.RemoveWhiteList.ToString())
+                        {
+                            //收集移除白名单
+                            listRemoveWhitelist.Add(blOptInfo);
                         }
                     }
                 }
@@ -660,35 +647,68 @@ namespace WinService.CardBlackWhiteListUpload
                         {
                             continue;
                         }
+
+                        bool isTechMac = itemMac.cmm_cUsageType == Common.DefineConstantValue.ConsumeMachineType.TeachPay.ToString() ? true : false;//是否教师机
+
                         ReturnValueInfo returnInfo = currentDevice.Conn(ip, itemMac.cmm_iPort, itemMac.cmm_iMacNo);
                         if (returnInfo.boolValue && !returnInfo.isError)
                         {
-                            foreach (BlacklistChangeRecord_blc_Info addItem in listAdd)
+                            foreach (BlacklistChangeRecord_blc_Info addItem in listAddBlacklist)
                             {
-                                //添加黑名单
-                                currentDevice.AddBlacklist(addItem.blc_iCardNo.ToString());
+                                bool isTechUser = addItem.IdentityNum == Common.DefineConstantValue.CodeMasterDefine.KEY2_SIOT_CardUserIdentity_Staff ? true : false;
+                                if (isTechMac == isTechUser)
+                                {
+                                    //添加黑名单
+                                    currentDevice.AddBlacklist(addItem.blc_iCardNo.ToString());
+                                }
                             }
-                            foreach (BlacklistChangeRecord_blc_Info removeItem in listRemove)
+                            foreach (BlacklistChangeRecord_blc_Info removeItem in listRemoveBalcklist)
                             {
-                                //移除黑名单
-                                currentDevice.RemoveBlacklist(removeItem.blc_iCardNo.ToString());
+                                bool isTechUser = removeItem.IdentityNum == Common.DefineConstantValue.CodeMasterDefine.KEY2_SIOT_CardUserIdentity_Staff ? true : false;
+                                if (isTechMac == isTechUser)
+                                {
+                                    //移除黑名单
+                                    currentDevice.RemoveBlacklist(removeItem.blc_iCardNo.ToString());
+                                }
+                            }
+                            foreach (BlacklistChangeRecord_blc_Info addNewItem in listAddWhitelist)
+                            {
+                                bool isTechUser = addNewItem.IdentityNum == Common.DefineConstantValue.CodeMasterDefine.KEY2_SIOT_CardUserIdentity_Staff ? true : false;
+                                if (isTechMac == isTechUser)
+                                {
+                                    //添加白名单
+                                    currentDevice.AddWhitelist(addNewItem.blc_iCardNo.ToString());
+                                }
+                            }
+                            foreach (BlacklistChangeRecord_blc_Info removeNewItem in listRemoveWhitelist)
+                            {
+                                bool isTechUser = removeNewItem.IdentityNum == Common.DefineConstantValue.CodeMasterDefine.KEY2_SIOT_CardUserIdentity_Staff ? true : false;
+                                if (isTechMac == isTechUser)
+                                {
+                                    //移除白名单
+                                    currentDevice.RemoveWhitelist(removeNewItem.blc_iCardNo.ToString());
+                                }
                             }
                         }
                         currentDevice.DisConn();
                     }
                     catch (Exception ex)
                     {
-                        this._LocalLogger.WriteLog("挂失 or 解挂黑名单操作异常。" + ex.Message + DateTime.Now.ToString(), string.Empty, SystemLog.SystemLog.LogType.Error);
+                        this._LocalLogger.WriteLog("挂失 or 解挂卡名单操作异常。" + ex.Message + DateTime.Now.ToString(), string.Empty, SystemLog.SystemLog.LogType.Error);
                         this._IsCollectting = false;
                         return;
                     }
                 }
                 #endregion
 
-                #region  更新已被使用的黑名单记录
+                #region  更新已被使用的黑白名单记录
+
                 List<BlacklistChangeRecord_blc_Info> listTotalList = new List<BlacklistChangeRecord_blc_Info>();
-                listTotalList.AddRange(listAdd);
-                listTotalList.AddRange(listRemove);
+                listTotalList.AddRange(listAddBlacklist);
+                listTotalList.AddRange(listRemoveBalcklist);
+                listTotalList.AddRange(listAddWhitelist);
+                listTotalList.AddRange(listRemoveWhitelist);
+
                 if (listTotalList != null && listTotalList.Count > 0)
                 {
                     ReturnValueInfo rvInfo = this._IBlacklistChangeRecordBL.UpdateBatchRecord(listTotalList);
@@ -708,8 +728,6 @@ namespace WinService.CardBlackWhiteListUpload
                 this._LocalLogger.WriteLog("上传普通黑名单失败，错误信息：" + ex.Message, string.Empty, SystemLog.SystemLog.LogType.Error);
             }
             this._IsCollectting = false;
-
-            #endregion
         }
 
         /// <summary>

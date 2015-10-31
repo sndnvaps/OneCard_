@@ -47,5 +47,9 @@ namespace Model.HHZX.MealBooking
         /// 完成时间
         /// </summary>
         public DateTime? blc_dFinishDate { get; set; }
+        /// <summary>
+        /// 用户身份
+        /// </summary>
+        public string IdentityNum { get; set; }
     }
 }

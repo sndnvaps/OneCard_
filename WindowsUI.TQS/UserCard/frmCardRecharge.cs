@@ -505,7 +505,7 @@ namespace WindowsUI.TQS.UserCard
                     localLog.WriteLog(userInfo.cus_cChaName + "，不在就餐时间内。" + dtSysNow.ToString(), string.Empty, SystemLog.SystemLog.LogType.Trace);
                 }
 
-                ReturnValueInfo rvInfo = AddOldCardBList(int.Parse(_CardInfo.CardNo), DefineConstantValue.EnumBlacklistCardOpt.RemoveList);
+                ReturnValueInfo rvInfo = AddOldCardBList(int.Parse(_CardInfo.CardNo), DefineConstantValue.EnumCardUploadListOpt.RemoveBlackList);
                 if (rvInfo.boolValue && !rvInfo.isError)
                 {
                     localLog.WriteLog(userInfo.cus_cChaName + "清除名单成功。" + dtSysNow.ToString(), string.Empty, SystemLog.SystemLog.LogType.Trace);
@@ -559,7 +559,7 @@ namespace WindowsUI.TQS.UserCard
             }
         }
 
-        ReturnValueInfo AddOldCardBList(int iCardNo, Common.DefineConstantValue.EnumBlacklistCardOpt blistOpt)
+        ReturnValueInfo AddOldCardBList(int iCardNo, Common.DefineConstantValue.EnumCardUploadListOpt blistOpt)
         {
             localLog.WriteLog("清除名单成功。", string.Empty, SystemLog.SystemLog.LogType.Trace);
 
@@ -567,7 +567,7 @@ namespace WindowsUI.TQS.UserCard
             BlacklistChangeRecord_blc_Info blistInsert = new BlacklistChangeRecord_blc_Info();
             blistInsert.blc_cAdd = "TQS";
             blistInsert.blc_cOperation = blistOpt.ToString();
-            blistInsert.blc_cOptReason = Common.DefineConstantValue.EnumBlacklistReason.BlacklistOpt.ToString();
+            blistInsert.blc_cOptReason = Common.DefineConstantValue.EnumCardUploadListReason.BlacklistOpt.ToString();
             blistInsert.blc_cRecordID = Guid.NewGuid();
             blistInsert.blc_dAddDate = DateTime.Now;
             blistInsert.blc_iCardNo = iCardNo;

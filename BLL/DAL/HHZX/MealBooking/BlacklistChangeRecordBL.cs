@@ -7,6 +7,7 @@ using DAL.IDAL.HHZX.MealBooking;
 using DAL.Factory.HHZX;
 using Model.General;
 using Model.HHZX.MealBooking;
+using Common;
 
 namespace BLL.DAL.HHZX.MealBooking
 {
@@ -114,6 +115,25 @@ namespace BLL.DAL.HHZX.MealBooking
                 rvInfo.isError = true;
                 rvInfo.messageText = ex.Message;
             }
+            return rvInfo;
+        }
+
+        /// <summary>
+        /// 插入需要上传消费机的卡号
+        /// </summary>
+        /// <param name="iCardNo">卡号</param>
+        /// <param name="enmOpt">上传操作</param>
+        /// <param name="enmReason">上传原因</param>
+        public ReturnValueInfo InsertUploadCardNo(int iCardNo, Common.DefineConstantValue.EnumCardUploadListOpt enmOpt, Common.DefineConstantValue.EnumCardUploadListReason enmReason, string strUserID)
+        {
+            BlacklistChangeRecord_blc_Info blistInsert = new BlacklistChangeRecord_blc_Info();
+            blistInsert.blc_cRecordID = Guid.NewGuid();
+            blistInsert.blc_cOperation = enmOpt.ToString();
+            blistInsert.blc_cOptReason = enmReason.ToString();
+            blistInsert.blc_iCardNo = iCardNo;
+            blistInsert.blc_cAdd = strUserID;
+            blistInsert.blc_dAddDate = DateTime.Now;
+            ReturnValueInfo rvInfo = Save(blistInsert, DefineConstantValue.EditStateEnum.OE_Insert);
             return rvInfo;
         }
     }

@@ -200,7 +200,7 @@ namespace WindowUI.HHZX.UserCard
                             {
                                 chkUserInfo.Ext_CheckResult = "退卡成功。";
                                 chkUserInfo.Ext_IsPassed = true;
-                                ReturnValueInfo rvAddBlist = AddOldCardBList(pairInfo.ucp_iCardNo, DefineConstantValue.EnumBlacklistCardOpt.AddList);
+                                ReturnValueInfo rvAddBlist = AddOldCardBList(pairInfo.ucp_iCardNo, DefineConstantValue.EnumCardUploadListOpt.AddBlackList);
                             }
                             else
                             {
@@ -223,13 +223,13 @@ namespace WindowUI.HHZX.UserCard
             }
         }
 
-        ReturnValueInfo AddOldCardBList(int iCardNo, Common.DefineConstantValue.EnumBlacklistCardOpt blistOpt)
+        ReturnValueInfo AddOldCardBList(int iCardNo, Common.DefineConstantValue.EnumCardUploadListOpt blistOpt)
         {
             IBlacklistChangeRecordBL blistBL = MasterBLLFactory.GetBLL<IBlacklistChangeRecordBL>(MasterBLLFactory.BlacklistChangeRecord);
             BlacklistChangeRecord_blc_Info blistInsert = new BlacklistChangeRecord_blc_Info();
             blistInsert.blc_cAdd = this.UserInformation.usm_cUserLoginID;
             blistInsert.blc_cOperation = blistOpt.ToString();
-            blistInsert.blc_cOptReason = Common.DefineConstantValue.EnumBlacklistReason.BlacklistOpt.ToString();
+            blistInsert.blc_cOptReason = Common.DefineConstantValue.EnumCardUploadListReason.BlacklistOpt.ToString();
             blistInsert.blc_cRecordID = Guid.NewGuid();
             blistInsert.blc_dAddDate = DateTime.Now;
             blistInsert.blc_iCardNo = iCardNo;

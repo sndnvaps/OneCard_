@@ -15,6 +15,8 @@ using Common;
 using Model.HHZX.Report;
 using Model.HHZX.ComsumeAccount;
 using DAL.IDAL.HHZX.ConsumeAccount;
+using BLL.IBLL.HHZX.MealBooking;
+using BLL.Factory.HHZX;
 
 namespace BLL.DAL.HHZX.UserCard
 {
@@ -27,6 +29,7 @@ namespace BLL.DAL.HHZX.UserCard
         private IClassMasterDA _IClassMasterDA;
         private IDepartmentMasterDA _IDepartmentMasterDA;
         private ICardUserAccountDA _ICardUserAccountDA;
+        private IBlacklistChangeRecordBL _IBlacklistChangeRecordBL;
 
         public UserCardPairBL()
         {
@@ -37,6 +40,7 @@ namespace BLL.DAL.HHZX.UserCard
             this._IClassMasterDA = MasterDAFactory.GetDAL<IClassMasterDA>(MasterDAFactory.ClassMaster);
             this._ICardUserAccountDA = MasterDAFactory.GetDAL<ICardUserAccountDA>(MasterDAFactory.CardUserAccount);
             this._IDepartmentMasterDA = MasterDAFactory.GetDAL<IDepartmentMasterDA>(MasterDAFactory.DepartmentMaster);
+            this._IBlacklistChangeRecordBL = MasterBLLFactory.GetBLL<IBlacklistChangeRecordBL>(MasterBLLFactory.BlacklistChangeRecord);
         }
 
         public List<UserCardPair_ucp_Info> GetUnusualCardList()
@@ -244,7 +248,16 @@ namespace BLL.DAL.HHZX.UserCard
         {
             try
             {
-                return this._IUserCardPairDA.InsertNewCard(infoObject, dCost);
+                ReturnValueInfo rvInfo = this._IUserCardPairDA.InsertNewCard(infoObject, dCost);
+                if (rvInfo.boolValue && !rvInfo.isError)
+                {
+                    UserCardPair_ucp_Info pairInfo = DisplayRecord(new UserCardPair_ucp_Info()
+                    {
+                        ucp_cRecordID = infoObject.ucp_cRecordID
+                    });
+                    this._IBlacklistChangeRecordBL.InsertUploadCardNo(pairInfo.ucp_iCardNo, DefineConstantValue.EnumCardUploadListOpt.AddWhiteList, DefineConstantValue.EnumCardUploadListReason.NewCard, infoObject.ucp_cLast);
+                }
+                return rvInfo;
             }
             catch (Exception ex)
             {
@@ -270,7 +283,12 @@ namespace BLL.DAL.HHZX.UserCard
         {
             try
             {
-                return this._IUserCardPairDA.ReturnCard(infoObject);
+                ReturnValueInfo rvInfo = this._IUserCardPairDA.ReturnCard(infoObject);
+                if (rvInfo.boolValue && !rvInfo.isError)
+                {
+                    this._IBlacklistChangeRecordBL.InsertUploadCardNo(infoObject.ucp_iCardNo, DefineConstantValue.EnumCardUploadListOpt.RemoveWhiteList, DefineConstantValue.EnumCardUploadListReason.CardReturned, infoObject.ucp_cLast);
+                }
+                return rvInfo;
             }
             catch (Exception ex)
             {

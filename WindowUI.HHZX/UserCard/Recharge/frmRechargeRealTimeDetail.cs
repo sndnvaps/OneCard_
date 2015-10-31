@@ -700,7 +700,7 @@ namespace WindowUI.HHZX.UserCard.Recharge
                 {
                     return;
                 }
-                ReturnValueInfo rvInfo = AddOldCardBList(int.Parse(base._CurrentCardInfo.CardNo), DefineConstantValue.EnumBlacklistCardOpt.RemoveList);
+                ReturnValueInfo rvInfo = AddOldCardBList(int.Parse(base._CurrentCardInfo.CardNo), DefineConstantValue.EnumCardUploadListOpt.RemoveBlackList);
                 if (rvInfo.boolValue && !rvInfo.isError)
                 {
                     //base.ShowInformationMessage("欠费停餐状态已清除成功，等待两分钟左右后可恢复打卡。");
@@ -751,13 +751,13 @@ namespace WindowUI.HHZX.UserCard.Recharge
             }
         }
 
-        ReturnValueInfo AddOldCardBList(int iCardNo, Common.DefineConstantValue.EnumBlacklistCardOpt blistOpt)
+        ReturnValueInfo AddOldCardBList(int iCardNo, Common.DefineConstantValue.EnumCardUploadListOpt blistOpt)
         {
             IBlacklistChangeRecordBL blistBL = MasterBLLFactory.GetBLL<IBlacklistChangeRecordBL>(MasterBLLFactory.BlacklistChangeRecord);
             BlacklistChangeRecord_blc_Info blistInsert = new BlacklistChangeRecord_blc_Info();
             blistInsert.blc_cAdd = this.UserInformation.usm_cUserLoginID;
             blistInsert.blc_cOperation = blistOpt.ToString();
-            blistInsert.blc_cOptReason = Common.DefineConstantValue.EnumBlacklistReason.BlacklistOpt.ToString();
+            blistInsert.blc_cOptReason = Common.DefineConstantValue.EnumCardUploadListReason.BlacklistOpt.ToString();
             blistInsert.blc_cRecordID = Guid.NewGuid();
             blistInsert.blc_dAddDate = DateTime.Now;
             blistInsert.blc_iCardNo = iCardNo;

@@ -15,5 +15,13 @@ namespace BLL.IBLL.HHZX.MealBooking
         /// <param name="listRecords"></param>
         /// <returns></returns>
         ReturnValueInfo UpdateBatchRecord(List<BlacklistChangeRecord_blc_Info> listRecords);
+
+        /// <summary>
+        /// 插入需要上传消费机的卡号
+        /// </summary>
+        /// <param name="iCardNo">卡号</param>
+        /// <param name="enmOpt">上传操作</param>
+        /// <param name="enmReason">上传原因</param>
+        ReturnValueInfo InsertUploadCardNo(int iCardNo, Common.DefineConstantValue.EnumCardUploadListOpt enmOpt, Common.DefineConstantValue.EnumCardUploadListReason enmReason, string strUserID);
     }
 }

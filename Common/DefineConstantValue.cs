@@ -1409,29 +1409,41 @@ namespace Common
         public static readonly string USerAutoCode_Teacher = "TCH";
 
         /// <summary>
-        /// 黑名单卡操作
+        /// 上传卡黑白名单操作
         /// </summary>
-        public enum EnumBlacklistCardOpt
+        public enum EnumCardUploadListOpt
         {
             /// <summary>
-            /// 添加名单
+            /// 添加黑名单
             /// </summary>
-            AddList,
+            AddBlackList,
             /// <summary>
-            /// 移除名单
+            /// 移除黑名单
             /// </summary>
-            RemoveList
+            RemoveBlackList,
+            /// <summary>
+            /// 添加白名单
+            /// </summary>
+            AddWhiteList,
+            /// <summary>
+            /// 移出白名单
+            /// </summary>
+            RemoveWhiteList
         }
 
         /// <summary>
-        /// 黑名单操作产生原因
+        /// 卡上传名单操作产生原因
         /// </summary>
-        public enum EnumBlacklistReason
+        public enum EnumCardUploadListReason
         {
             /// <summary>
-            /// 解挂/挂失黑名单
+            /// 上传黑名单
             /// </summary>
             BlacklistOpt,
+            /// <summary>
+            /// 上传白名单
+            /// </summary>
+            WhitelistOpt,
             /// <summary>
             /// 重置定餐计划（欠费停餐的重开餐）
             /// </summary>
@@ -1443,7 +1455,11 @@ namespace Common
             /// <summary>
             /// 退卡
             /// </summary>
-            CardReturned
+            CardReturned,
+            /// <summary>
+            /// 新发卡
+            /// </summary>
+            NewCard
         }
     }
 }

@@ -33,7 +33,7 @@ namespace WindowUI.HHZX.UserCard
         private IUserCardPairBL _ucpBL;
         private IConsumeMachineBL _icmBL;
         private AbstractPayDevice _CurrentDevice;
-
+        private IBlacklistChangeRecordBL m_blistBL;
         private ILogDetailBL _ildBL;
 
         public frmBlackWhiteList()
@@ -44,6 +44,8 @@ namespace WindowUI.HHZX.UserCard
             _CurrentDevice = PaymentDeviceFactory.CreateDevice(PaymentDeviceFactory.EastRiverDevice);
 
             _ildBL = BLL.Factory.SysFunction.SysBLLFactory.GetBLL<ILogDetailBL>(BLL.Factory.SysFunction.SysBLLFactory.LogDetail);
+
+            this.m_blistBL = MasterBLLFactory.GetBLL<IBlacklistChangeRecordBL>(MasterBLLFactory.BlacklistChangeRecord);
         }
 
         private void btnSelectUser_Click(object sender, EventArgs e)
@@ -196,7 +198,7 @@ namespace WindowUI.HHZX.UserCard
                     //}
 
                     #endregion
-                    ReturnValueInfo rvInfo = AddOldCardBList(_cusInfo.PairInfo.ucp_iCardNo, DefineConstantValue.EnumBlacklistCardOpt.AddList);
+                    ReturnValueInfo rvInfo = RemoveCardFromWList(_cusInfo.PairInfo.ucp_iCardNo);
                     if (rvInfo.boolValue && !rvInfo.isError)
                     {
                         base.ShowInformationMessage("挂失成功。");
@@ -216,21 +218,30 @@ namespace WindowUI.HHZX.UserCard
         }
 
         /// <summary>
-        /// 将旧卡添加到黑名单记录中
+        /// 将卡添加到黑名单记录中
         /// </summary>
         /// <param name="iCardNo"></param>
-        ReturnValueInfo AddOldCardBList(int iCardNo, Common.DefineConstantValue.EnumBlacklistCardOpt blistOpt)
+        ReturnValueInfo AddOldCardBList(int iCardNo, Common.DefineConstantValue.EnumCardUploadListOpt blistOpt)
         {
-            IBlacklistChangeRecordBL blistBL = MasterBLLFactory.GetBLL<IBlacklistChangeRecordBL>(MasterBLLFactory.BlacklistChangeRecord);
-            BlacklistChangeRecord_blc_Info blistInsert = new BlacklistChangeRecord_blc_Info();
-            blistInsert.blc_cAdd = this.UserInformation.usm_cUserLoginID;
-            blistInsert.blc_cOperation = blistOpt.ToString();
-            blistInsert.blc_cOptReason = Common.DefineConstantValue.EnumBlacklistReason.BlacklistOpt.ToString();
-            blistInsert.blc_cRecordID = Guid.NewGuid();
-            blistInsert.blc_dAddDate = DateTime.Now;
-            blistInsert.blc_iCardNo = iCardNo;
-            ReturnValueInfo rvInfo = blistBL.Save(blistInsert, DefineConstantValue.EditStateEnum.OE_Insert);
-            return rvInfo;
+            return this.m_blistBL.InsertUploadCardNo(iCardNo, DefineConstantValue.EnumCardUploadListOpt.AddBlackList, DefineConstantValue.EnumCardUploadListReason.BlacklistOpt, this.UserInformation.usm_cUserLoginID);
+        }
+
+        /// <summary>
+        /// 将卡移出白名单记录中
+        /// </summary>
+        /// <param name="iCardNo">卡号</param>
+        ReturnValueInfo RemoveCardFromWList(int iCardNo)
+        {
+            return this.m_blistBL.InsertUploadCardNo(iCardNo, DefineConstantValue.EnumCardUploadListOpt.RemoveWhiteList, DefineConstantValue.EnumCardUploadListReason.BlacklistOpt, this.UserInformation.usm_cUserLoginID);
+        }
+
+        /// <summary>
+        /// 将卡添加到白名单记录中
+        /// </summary>
+        /// <param name="iCardNo">卡号</param>
+        ReturnValueInfo AddCardToWList(int iCardNo)
+        {
+            return this.m_blistBL.InsertUploadCardNo(iCardNo, DefineConstantValue.EnumCardUploadListOpt.AddWhiteList, DefineConstantValue.EnumCardUploadListReason.BlacklistOpt, this.UserInformation.usm_cUserLoginID);
         }
 
         private void btnWhite_Click(object sender, EventArgs e)
@@ -300,7 +311,7 @@ namespace WindowUI.HHZX.UserCard
                     #endregion
 
 
-                    ReturnValueInfo rvInfo = AddOldCardBList(_cusInfo.PairInfo.ucp_iCardNo, DefineConstantValue.EnumBlacklistCardOpt.RemoveList);
+                    ReturnValueInfo rvInfo = AddCardToWList(_cusInfo.PairInfo.ucp_iCardNo);
                     if (rvInfo.boolValue && !rvInfo.isError)
                     {
                         base.ShowInformationMessage("解挂成功，卡片将于一至两分钟后可恢复刷卡。");

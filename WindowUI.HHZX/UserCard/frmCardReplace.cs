@@ -52,6 +52,7 @@ namespace WindowUI.HHZX.UserCard
         private ICardUserAccountBL _ICardUserAccountBL;
         private ICodeMasterBL _ICodeMasterBL;
         private IConsumeMachineBL _IConsumeMachineBL;
+        private IBlacklistChangeRecordBL m_IBlacklistChangeRecordBL;
 
         public frmCardReplace()
         {
@@ -63,6 +64,7 @@ namespace WindowUI.HHZX.UserCard
             this._ICardUserAccountBL = MasterBLLFactory.GetBLL<ICardUserAccountBL>(MasterBLLFactory.CardUserAccount);
             this._ICodeMasterBL = BLL.Factory.SysMaster.MasterBLLFactory.GetBLL<ICodeMasterBL>(BLL.Factory.SysMaster.MasterBLLFactory.CodeMaster_cmt);
             this._IConsumeMachineBL = MasterBLLFactory.GetBLL<IConsumeMachineBL>(MasterBLLFactory.ConsumeMachine);
+            this.m_IBlacklistChangeRecordBL = MasterBLLFactory.GetBLL<IBlacklistChangeRecordBL>(MasterBLLFactory.BlacklistChangeRecord);
 
             initCost();
 
@@ -473,8 +475,9 @@ namespace WindowUI.HHZX.UserCard
 
                         ShowInformationMessage("换卡成功。");
 
-                        ReturnValueInfo rvAddOld = AddOldCardBList(iOldCardNo);
-                        if (rvAddOld.boolValue && !rvAddOld.isError)
+                        ReturnValueInfo rvRemoveOld = RemoveOldCardFromWList(iOldCardNo);
+                        ReturnValueInfo rvAddNew = AddNewCardToWList(userPairInfo.ucp_iCardNo);
+                        if (rvRemoveOld.boolValue && rvAddNew.boolValue)
                         {
                             ShowInformationMessage("旧卡自动添加到黑名单列表成功，原卡已不能继续使用。");
                         }
@@ -494,19 +497,28 @@ namespace WindowUI.HHZX.UserCard
         /// <summary>
         /// 将旧卡添加到黑名单记录中
         /// </summary>
-        /// <param name="iCardNo"></param>
-        ReturnValueInfo AddOldCardBList(int iCardNo)
+        /// <param name="iCardNo">卡号</param>
+        ReturnValueInfo AddOldCardToBList(int iCardNo)
         {
-            IBlacklistChangeRecordBL blistBL = MasterBLLFactory.GetBLL<IBlacklistChangeRecordBL>(MasterBLLFactory.BlacklistChangeRecord);
-            BlacklistChangeRecord_blc_Info blistInsert = new BlacklistChangeRecord_blc_Info();
-            blistInsert.blc_cAdd = this.UserInformation.usm_cUserLoginID;
-            blistInsert.blc_cOperation = Common.DefineConstantValue.EnumBlacklistCardOpt.AddList.ToString();
-            blistInsert.blc_cOptReason = Common.DefineConstantValue.EnumBlacklistReason.CardReplace.ToString();
-            blistInsert.blc_cRecordID = Guid.NewGuid();
-            blistInsert.blc_dAddDate = DateTime.Now;
-            blistInsert.blc_iCardNo = iCardNo;
-            ReturnValueInfo rvInfo = blistBL.Save(blistInsert, DefineConstantValue.EditStateEnum.OE_Insert);
-            return rvInfo;
+            return this.m_IBlacklistChangeRecordBL.InsertUploadCardNo(iCardNo, DefineConstantValue.EnumCardUploadListOpt.AddBlackList, DefineConstantValue.EnumCardUploadListReason.CardReplace, this.UserInformation.usm_cUserLoginID);
+        }
+
+        /// <summary>
+        /// 将旧卡移出白名单记录中
+        /// </summary>
+        /// <param name="iCardNo">卡号</param>
+        ReturnValueInfo RemoveOldCardFromWList(int iCardNo)
+        {
+            return this.m_IBlacklistChangeRecordBL.InsertUploadCardNo(iCardNo, DefineConstantValue.EnumCardUploadListOpt.RemoveWhiteList, DefineConstantValue.EnumCardUploadListReason.CardReplace, this.UserInformation.usm_cUserLoginID);
+        }
+
+        /// <summary>
+        /// 将新卡添加到白名单记录中
+        /// </summary>
+        /// <param name="iCardNo">卡号</param>
+        ReturnValueInfo AddNewCardToWList(int iCardNo)
+        {
+            return this.m_IBlacklistChangeRecordBL.InsertUploadCardNo(iCardNo, DefineConstantValue.EnumCardUploadListOpt.AddWhiteList, DefineConstantValue.EnumCardUploadListReason.CardReplace, this.UserInformation.usm_cUserLoginID);
         }
 
         /// <summary>

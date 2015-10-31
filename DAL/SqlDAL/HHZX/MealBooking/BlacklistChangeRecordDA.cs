@@ -203,8 +203,12 @@ namespace DAL.SqlDAL.HHZX.MealBooking
             try
             {
                 StringBuilder sbSQL = new StringBuilder();
-                sbSQL.AppendLine("SELECT blc_cRecordID,blc_iCardNo,blc_cOperation,blc_cOptReason,blc_lIsFinished,blc_cAdd,blc_dAddDate,blc_dFinishDate");
-                sbSQL.AppendLine(" FROM BlacklistChangeRecord_blc WHERE 1 = 1 AND blc_lIsFinished = 0");
+                sbSQL.AppendLine(" SELECT blc_cRecordID,blc_iCardNo,blc_cOperation,blc_cOptReason,blc_lIsFinished,blc_cAdd ");
+                sbSQL.AppendLine(" ,blc_dAddDate,blc_dFinishDate,cus_cIdentityNum as IdentityNum ");
+                sbSQL.AppendLine(" FROM BlacklistChangeRecord_blc WITH(NOLOCK) ");
+                sbSQL.AppendLine(" JOIN UserCardPair_ucp WITH(NOLOCK) ON ucp_iCardNo=blc_iCardNo ");
+                sbSQL.AppendLine(" JOIN CardUserMaster_cus WITH(NOLOCK) ON cus_cRecordID=ucp_cCUSID ");
+                sbSQL.AppendLine(" WHERE blc_lIsFinished=0 ");
 
                 using (SIOTSDB_HHZXDataContext db = new SIOTSDB_HHZXDataContext())
                 {
