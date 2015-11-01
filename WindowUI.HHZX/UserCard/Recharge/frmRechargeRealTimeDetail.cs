@@ -636,13 +636,6 @@ namespace WindowUI.HHZX.UserCard.Recharge
         {
             try
             {
-                //ICodeMasterBL bll = BLL.Factory.SysMaster.MasterBLLFactory.GetBLL<ICodeMasterBL>(BLL.Factory.SysMaster.MasterBLLFactory.CodeMaster_cmt);
-                //List<CodeMaster_cmt_Info> listMealTimeSpans = bll.SearchRecords(new CodeMaster_cmt_Info() { cmt_cKey1 = Common.DefineConstantValue.CodeMasterDefine.KEY1_MealTimeSpan });
-                //List<CodeMaster_cmt_Info> listBlacklistTImeSpans = bll.SearchRecords(new CodeMaster_cmt_Info() { cmt_cKey1 = Common.DefineConstantValue.CodeMasterDefine.KEY1_BWListUploadInterval });
-                //TimeSpan tsBLLunch = TimeSpan.Parse(listBlacklistTImeSpans.Find(x => x.cmt_cValue == Common.DefineConstantValue.MealType.Lunch.ToString()).cmt_cRemark);
-                //TimeSpan tsMealLunch = TimeSpan.Parse(listMealTimeSpans.Find(x => x.cmt_cKey2 == Common.DefineConstantValue.MealType.Lunch.ToString()).cmt_cRemark2);
-                //TimeSpan tsBLSupper = TimeSpan.Parse(listBlacklistTImeSpans.Find(x => x.cmt_cValue == Common.DefineConstantValue.MealType.Supper.ToString()).cmt_cRemark);
-                //TimeSpan tsMealSupper = TimeSpan.Parse(listMealTimeSpans.Find(x => x.cmt_cKey2 == Common.DefineConstantValue.MealType.Supper.ToString()).cmt_cRemark2);
                 if (this._tsBLLunch == null || this._tsBLSupper == null || this._tsMealLunch == null || this._tsMealSupper == null)
                 {
                     BindMealTime();
@@ -700,7 +693,7 @@ namespace WindowUI.HHZX.UserCard.Recharge
                 {
                     return;
                 }
-                ReturnValueInfo rvInfo = AddOldCardBList(int.Parse(base._CurrentCardInfo.CardNo), DefineConstantValue.EnumCardUploadListOpt.RemoveBlackList);
+                ReturnValueInfo rvInfo = AddOldCardList(int.Parse(base._CurrentCardInfo.CardNo), DefineConstantValue.EnumCardUploadListOpt.AddWhiteList);
                 if (rvInfo.boolValue && !rvInfo.isError)
                 {
                     //base.ShowInformationMessage("欠费停餐状态已清除成功，等待两分钟左右后可恢复打卡。");
@@ -751,13 +744,13 @@ namespace WindowUI.HHZX.UserCard.Recharge
             }
         }
 
-        ReturnValueInfo AddOldCardBList(int iCardNo, Common.DefineConstantValue.EnumCardUploadListOpt blistOpt)
+        ReturnValueInfo AddOldCardList(int iCardNo, Common.DefineConstantValue.EnumCardUploadListOpt blistOpt)
         {
             IBlacklistChangeRecordBL blistBL = MasterBLLFactory.GetBLL<IBlacklistChangeRecordBL>(MasterBLLFactory.BlacklistChangeRecord);
             BlacklistChangeRecord_blc_Info blistInsert = new BlacklistChangeRecord_blc_Info();
             blistInsert.blc_cAdd = this.UserInformation.usm_cUserLoginID;
             blistInsert.blc_cOperation = blistOpt.ToString();
-            blistInsert.blc_cOptReason = Common.DefineConstantValue.EnumCardUploadListReason.BlacklistOpt.ToString();
+            blistInsert.blc_cOptReason = Common.DefineConstantValue.EnumCardUploadListReason.WhitelistOpt.ToString();
             blistInsert.blc_cRecordID = Guid.NewGuid();
             blistInsert.blc_dAddDate = DateTime.Now;
             blistInsert.blc_iCardNo = iCardNo;
