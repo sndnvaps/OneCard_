@@ -21,3 +21,15 @@ E:\SIOTS_HHZX\SIOTS_HHZX\WinService.WebMonitor\obj\Debug\WinService.WebMonitor.e
 E:\SIOTS_HHZX\SIOTS_HHZX\WinService.WebMonitor\obj\Debug\WinService.WebMonitor.pdb
 D:\SIOTS_HHZX\SIOTS_HHZX\WinService.WebMonitor\bin\Debug\ServiceManage.dll
 D:\SIOTS_HHZX\SIOTS_HHZX\WinService.WebMonitor\bin\Debug\ServiceManage.pdb
+D:\Git\SIOTS_HHZX\WinService.WebMonitor\bin\Debug\Monitor.xml
+D:\Git\SIOTS_HHZX\WinService.WebMonitor\bin\Debug\app.config
+D:\Git\SIOTS_HHZX\WinService.WebMonitor\bin\Debug\WinService.WebMonitor.exe.config
+D:\Git\SIOTS_HHZX\WinService.WebMonitor\bin\Debug\WinService.WebMonitor.exe
+D:\Git\SIOTS_HHZX\WinService.WebMonitor\bin\Debug\WinService.WebMonitor.pdb
+D:\Git\SIOTS_HHZX\WinService.WebMonitor\bin\Debug\ServiceManage.dll
+D:\Git\SIOTS_HHZX\WinService.WebMonitor\bin\Debug\ServiceManage.pdb
+D:\Git\SIOTS_HHZX\WinService.WebMonitor\obj\Debug\ResolveAssemblyReference.cache
+D:\Git\SIOTS_HHZX\WinService.WebMonitor\obj\Debug\WinService.WebMonitor.ProjectInstaller.resources
+D:\Git\SIOTS_HHZX\WinService.WebMonitor\obj\Debug\WinService.WebMonitor.csproj.GenerateResource.Cache
+D:\Git\SIOTS_HHZX\WinService.WebMonitor\obj\Debug\WinService.WebMonitor.exe
+D:\Git\SIOTS_HHZX\WinService.WebMonitor\obj\Debug\WinService.WebMonitor.pdb

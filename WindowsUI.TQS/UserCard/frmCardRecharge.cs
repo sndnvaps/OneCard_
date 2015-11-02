@@ -99,8 +99,10 @@ namespace WindowsUI.TQS.UserCard
                     UserCardPair_ucp_Info cardPair = this._IUserCardPairBL.SearchRecords(new UserCardPair_ucp_Info()
                     {
                         ucp_iCardNo = Convert.ToInt16(this._CardInfo.CardNo),
-                        ucp_cCardID = strCardID
+                        ucp_cCardID = strCardID,
+                        ucp_cUseStatus = Common.DefineConstantValue.ConsumeCardStatus.Normal.ToString()
                     }).FirstOrDefault();
+
                     if (cardPair != null)
                     {
                         if (cardPair.CardOwner != null && cardPair.CardOwner.AccountInfo != null)

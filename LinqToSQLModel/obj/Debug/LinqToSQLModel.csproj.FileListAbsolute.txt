@@ -10,3 +10,9 @@ E:\SIOTS_HHZX\SIOTS_HHZX\LinqToSQLModel\bin\Debug\LinqToSQLModel.pdb
 E:\SIOTS_HHZX\SIOTS_HHZX\LinqToSQLModel\obj\Debug\ResolveAssemblyReference.cache
 E:\SIOTS_HHZX\SIOTS_HHZX\LinqToSQLModel\obj\Debug\LinqToSQLModel.dll
 E:\SIOTS_HHZX\SIOTS_HHZX\LinqToSQLModel\obj\Debug\LinqToSQLModel.pdb
+D:\Git\SIOTS_HHZX\LinqToSQLModel\bin\Debug\LinqToSQLModel.dll.config
+D:\Git\SIOTS_HHZX\LinqToSQLModel\bin\Debug\LinqToSQLModel.dll
+D:\Git\SIOTS_HHZX\LinqToSQLModel\bin\Debug\LinqToSQLModel.pdb
+D:\Git\SIOTS_HHZX\LinqToSQLModel\obj\Debug\ResolveAssemblyReference.cache
+D:\Git\SIOTS_HHZX\LinqToSQLModel\obj\Debug\LinqToSQLModel.dll
+D:\Git\SIOTS_HHZX\LinqToSQLModel\obj\Debug\LinqToSQLModel.pdb
