@@ -6,11 +6,3 @@ D:\SIOTS_HHZX\SIOTS_HHZX\WinService.BackupFileManage\obj\Debug\WinService.Backup
 D:\SIOTS_HHZX\SIOTS_HHZX\WinService.BackupFileManage\obj\Debug\WinService.BackupFileManage.csproj.GenerateResource.Cache
 D:\SIOTS_HHZX\SIOTS_HHZX\WinService.BackupFileManage\obj\Debug\WinService.BackupFileManage.exe
 D:\SIOTS_HHZX\SIOTS_HHZX\WinService.BackupFileManage\obj\Debug\WinService.BackupFileManage.pdb
-D:\Git\SIOTS_HHZX\WinService.BackupFileManage\bin\Debug\WinService.BackupFileManage.exe.config
-D:\Git\SIOTS_HHZX\WinService.BackupFileManage\bin\Debug\WinService.BackupFileManage.exe
-D:\Git\SIOTS_HHZX\WinService.BackupFileManage\bin\Debug\WinService.BackupFileManage.pdb
-D:\Git\SIOTS_HHZX\WinService.BackupFileManage\obj\Debug\ResolveAssemblyReference.cache
-D:\Git\SIOTS_HHZX\WinService.BackupFileManage\obj\Debug\WinService.BackupFileManage.ProjectInstaller.resources
-D:\Git\SIOTS_HHZX\WinService.BackupFileManage\obj\Debug\WinService.BackupFileManage.csproj.GenerateResource.Cache
-D:\Git\SIOTS_HHZX\WinService.BackupFileManage\obj\Debug\WinService.BackupFileManage.exe
-D:\Git\SIOTS_HHZX\WinService.BackupFileManage\obj\Debug\WinService.BackupFileManage.pdb

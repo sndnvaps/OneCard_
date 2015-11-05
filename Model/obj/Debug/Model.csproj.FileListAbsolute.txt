@@ -24,16 +24,3 @@ E:\SIOTS_HHZX\SIOTS_HHZX\Model\bin\Debug\Microsoft.Office.Interop.Excel.xml
 E:\SIOTS_HHZX\SIOTS_HHZX\Model\obj\Debug\ResolveAssemblyReference.cache
 E:\SIOTS_HHZX\SIOTS_HHZX\Model\obj\Debug\Model.dll
 E:\SIOTS_HHZX\SIOTS_HHZX\Model\obj\Debug\Model.pdb
-D:\Git\SIOTS_HHZX\Model\bin\Debug\Model.dll
-D:\Git\SIOTS_HHZX\Model\bin\Debug\Model.pdb
-D:\Git\SIOTS_HHZX\Model\bin\Debug\Common.dll
-D:\Git\SIOTS_HHZX\Model\bin\Debug\SystemLog.dll
-D:\Git\SIOTS_HHZX\Model\bin\Debug\office.dll
-D:\Git\SIOTS_HHZX\Model\bin\Debug\Microsoft.Office.Interop.Excel.dll
-D:\Git\SIOTS_HHZX\Model\bin\Debug\Microsoft.Vbe.Interop.dll
-D:\Git\SIOTS_HHZX\Model\bin\Debug\Common.pdb
-D:\Git\SIOTS_HHZX\Model\bin\Debug\office.xml
-D:\Git\SIOTS_HHZX\Model\bin\Debug\Microsoft.Office.Interop.Excel.xml
-D:\Git\SIOTS_HHZX\Model\obj\Debug\ResolveAssemblyReference.cache
-D:\Git\SIOTS_HHZX\Model\obj\Debug\Model.dll
-D:\Git\SIOTS_HHZX\Model\obj\Debug\Model.pdb

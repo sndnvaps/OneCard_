@@ -20,15 +20,3 @@ E:\SIOTS_HHZX\SIOTS_HHZX\Common\bin\Debug\Microsoft.Vbe.Interop.dll
 E:\SIOTS_HHZX\SIOTS_HHZX\Common\obj\Debug\ResolveAssemblyReference.cache
 E:\SIOTS_HHZX\SIOTS_HHZX\Common\obj\Debug\Common.dll
 E:\SIOTS_HHZX\SIOTS_HHZX\Common\obj\Debug\Common.pdb
-D:\Git\SIOTS_HHZX\Common\bin\Debug\Common.dll.config
-D:\Git\SIOTS_HHZX\Common\bin\Debug\Common.dll
-D:\Git\SIOTS_HHZX\Common\bin\Debug\Common.pdb
-D:\Git\SIOTS_HHZX\Common\bin\Debug\Microsoft.Office.Interop.Excel.dll
-D:\Git\SIOTS_HHZX\Common\bin\Debug\Office.dll
-D:\Git\SIOTS_HHZX\Common\bin\Debug\SystemLog.dll
-D:\Git\SIOTS_HHZX\Common\bin\Debug\Microsoft.Vbe.Interop.dll
-D:\Git\SIOTS_HHZX\Common\bin\Debug\Microsoft.Office.Interop.Excel.xml
-D:\Git\SIOTS_HHZX\Common\bin\Debug\Office.xml
-D:\Git\SIOTS_HHZX\Common\obj\Debug\ResolveAssemblyReference.cache
-D:\Git\SIOTS_HHZX\Common\obj\Debug\Common.dll
-D:\Git\SIOTS_HHZX\Common\obj\Debug\Common.pdb

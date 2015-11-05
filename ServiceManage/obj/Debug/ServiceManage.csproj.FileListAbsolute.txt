@@ -4,9 +4,3 @@ D:\SIOTS_HHZX\SIOTS_HHZX\ServiceManage\bin\Debug\ServiceManage.pdb
 D:\SIOTS_HHZX\SIOTS_HHZX\ServiceManage\obj\Debug\ResolveAssemblyReference.cache
 D:\SIOTS_HHZX\SIOTS_HHZX\ServiceManage\obj\Debug\ServiceManage.dll
 D:\SIOTS_HHZX\SIOTS_HHZX\ServiceManage\obj\Debug\ServiceManage.pdb
-D:\Git\SIOTS_HHZX\ServiceManage\bin\Debug\ServiceManage.dll.config
-D:\Git\SIOTS_HHZX\ServiceManage\bin\Debug\ServiceManage.dll
-D:\Git\SIOTS_HHZX\ServiceManage\bin\Debug\ServiceManage.pdb
-D:\Git\SIOTS_HHZX\ServiceManage\obj\Debug\ResolveAssemblyReference.cache
-D:\Git\SIOTS_HHZX\ServiceManage\obj\Debug\ServiceManage.dll
-D:\Git\SIOTS_HHZX\ServiceManage\obj\Debug\ServiceManage.pdb

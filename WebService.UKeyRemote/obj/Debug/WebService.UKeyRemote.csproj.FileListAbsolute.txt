@@ -6,11 +6,3 @@ D:\SIOTS_HHZX\SIOTS_HHZX\WebService.UKeyRemote\bin\UKey.pdb
 D:\SIOTS_HHZX\SIOTS_HHZX\WebService.UKeyRemote\obj\Debug\ResolveAssemblyReference.cache
 D:\SIOTS_HHZX\SIOTS_HHZX\WebService.UKeyRemote\obj\Debug\WebService.UKeyRemote.dll
 D:\SIOTS_HHZX\SIOTS_HHZX\WebService.UKeyRemote\obj\Debug\WebService.UKeyRemote.pdb
-D:\Git\SIOTS_HHZX\WebService.UKeyRemote\bin\DLL\NT119.dll
-D:\Git\SIOTS_HHZX\WebService.UKeyRemote\bin\WebService.UKeyRemote.dll
-D:\Git\SIOTS_HHZX\WebService.UKeyRemote\bin\WebService.UKeyRemote.pdb
-D:\Git\SIOTS_HHZX\WebService.UKeyRemote\bin\UKey.dll
-D:\Git\SIOTS_HHZX\WebService.UKeyRemote\bin\UKey.pdb
-D:\Git\SIOTS_HHZX\WebService.UKeyRemote\obj\Debug\ResolveAssemblyReference.cache
-D:\Git\SIOTS_HHZX\WebService.UKeyRemote\obj\Debug\WebService.UKeyRemote.dll
-D:\Git\SIOTS_HHZX\WebService.UKeyRemote\obj\Debug\WebService.UKeyRemote.pdb

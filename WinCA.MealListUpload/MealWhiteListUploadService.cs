@@ -171,14 +171,14 @@ namespace WinCA.MealListUpload
                 Console.WriteLine(getCWStyle("获取到持卡教职工名单：" + listTeachers.Count + "个。", SystemLog.SystemLog.LogType.Trace));
 
                 List<ConsumeMachineMaster_cmm_Info> listTechMacs = this.m_ListMacInfos;
-                if (listTechMacs != null)
-                {
-                    listTechMacs = listTechMacs.Where(x => x.cmm_cUsageType == Common.DefineConstantValue.ConsumeMachineType.TeachPay.ToString()).ToList();
-                }
+                //if (listTechMacs != null)
+                //{
+                //    listTechMacs = listTechMacs.Where(x => x.cmm_cUsageType == Common.DefineConstantValue.ConsumeMachineType.TeachPay.ToString()).ToList();
+                //}
 
                 if (listTechMacs != null && listTeachers != null)
                 {
-                    Console.WriteLine(getCWStyle("获取教职工专用消费机：" + listTechMacs.Count + "台。", SystemLog.SystemLog.LogType.Trace));
+                    Console.WriteLine(getCWStyle("获取教职工可用消费机：" + listTechMacs.Count + "台。", SystemLog.SystemLog.LogType.Trace));
 
                     foreach (ConsumeMachineMaster_cmm_Info macItem in listTechMacs)
                     {
