@@ -10,6 +10,7 @@ using Model.IModel;
 using Model.HHZX.Report;
 using DAL.Factory.HHZX;
 using DAL.IDAL.Report;
+using System.Data.SqlClient;
 
 namespace DAL.SqlDAL.HHZX.ConsumeAccount
 {
@@ -292,7 +293,7 @@ namespace DAL.SqlDAL.HHZX.ConsumeAccount
 
             StringBuilder sbSQL = new StringBuilder();
 
-            sbSQL.AppendLine("select *");
+            sbSQL.AppendLine("select TotalMoney=SUM(pcs_fCost)");
             sbSQL.AppendLine("from dbo.PreConsumeRecord_pcs with(nolock)");
             sbSQL.AppendLine("where 1=1 ");
             sbSQL.AppendLine("and ");
@@ -305,18 +306,13 @@ namespace DAL.SqlDAL.HHZX.ConsumeAccount
 
             try
             {
-                using (SIOTSDB_HHZXDataContext db = new SIOTSDB_HHZXDataContext())
+                using (SqlDataReader reader = DbHelperSQL.ExecuteReader(sbSQL.ToString()))
                 {
-                    db.CommandTimeout = 10 * 60000;
-                    IEnumerable<PreConsumeRecord_pcs> query = db.ExecuteQuery<PreConsumeRecord_pcs>(sbSQL.ToString(), new object[] { });
-
-                    if (query != null)
+                    if (reader.Read())
                     {
-                        returnList = query.ToList<PreConsumeRecord_pcs>();
-
-                        foreach (PreConsumeRecord_pcs item in returnList)
+                        if (reader["TotalMoney"] != null && reader["TotalMoney"].ToString() != string.Empty)
                         {
-                            inCome += item.pcs_fCost;
+                            inCome = decimal.Parse(reader["TotalMoney"].ToString());
                         }
                     }
                 }
@@ -344,42 +340,45 @@ namespace DAL.SqlDAL.HHZX.ConsumeAccount
             sbWherePublic.Append(" between '" + startDate.ToString("yyyy-MM-dd 00:00:00") + "' and '" + endDate.ToString("yyyy-MM-dd 23:59:59") + "'");
 
             StringBuilder sbSQLPreCost = new StringBuilder();
-            sbSQLPreCost.AppendLine(@"select [cuad_cRecordID],[cuad_cCUAID],[cuad_fFlowMoney],[cuad_cFlowType],[cuad_cConsumeID],[cuad_cOpt],'PreCost' as TypeNum
-, pcs_dAddDate as CostDate,pcs_cRecordID as CostID
+
+            sbSQLPreCost.AppendLine(@"select cuad_fFlowMoney
 from CardUserAccountDetail_cuad with(nolock) 
+join vie_AllStudentCardUserInfos on cua_cRecordID=cuad_cCUAID
 join PreConsumeRecord_pcs with(nolock) on cuad_cConsumeID = pcs_cRecordID
 where cuad_cFlowType = 'SetMealCost'");
             sbSQLPreCost.AppendLine("and pcs_dConsumeDate " + sbWherePublic.ToString());
 
             StringBuilder sbSQLCardCost = new StringBuilder();
-            sbSQLCardCost.AppendLine(@"union
-(select [cuad_cRecordID],[cuad_cCUAID],[cuad_fFlowMoney],[cuad_cFlowType],[cuad_cConsumeID],[cuad_cOpt],'CardCost' as TypeNum
-, csr_dConsumeDate as CostDate,csr_cRecordID as CostID
+            sbSQLCardCost.AppendLine(@"union all
+(select cuad_fFlowMoney
 from CardUserAccountDetail_cuad with(nolock) 
+join vie_AllStudentCardUserInfos on cua_cRecordID=cuad_cCUAID
 join ConsumeRecord_csr with(nolock)  on cuad_cConsumeID = csr_cRecordID
 where cuad_cFlowType = 'SetMealCost'");
             sbSQLCardCost.AppendLine("and csr_dConsumeDate" + sbWherePublic.ToString() + ")");
 
-            StringBuilder sbSQLUnknowCost = new StringBuilder();
-            sbSQLUnknowCost.AppendLine(@"union
-(select [cuad_cRecordID],[cuad_cCUAID],[cuad_fFlowMoney],[cuad_cFlowType],[cuad_cConsumeID],[cuad_cOpt],'UnknowCost' as TypeNum
-, cuad_dOptTime as CostDate,csr_cRecordID as CostID
-from CardUserAccountDetail_cuad with(nolock) 
-join PreConsumeRecord_pcs with(nolock)  on cuad_cConsumeID = pcs_cRecordID
-join ConsumeRecord_csr with(nolock)  on cuad_cConsumeID = csr_cRecordID
-where cuad_cFlowType = 'SetMealCost'");
-            sbSQLUnknowCost.AppendLine("and cuad_dOptTime" + sbWherePublic.ToString() + ")");
+            //            StringBuilder sbSQLUnknowCost = new StringBuilder();
+            //            sbSQLUnknowCost.AppendLine(@"union
+            //(select [cuad_cRecordID],[cuad_cCUAID],[cuad_fFlowMoney],[cuad_cFlowType],[cuad_cConsumeID],[cuad_cOpt],'UnknowCost' as TypeNum
+            //, cuad_dOptTime as CostDate,csr_cRecordID as CostID
+            //from CardUserAccountDetail_cuad with(nolock) 
+            //join PreConsumeRecord_pcs with(nolock)  on cuad_cConsumeID = pcs_cRecordID
+            //join ConsumeRecord_csr with(nolock)  on cuad_cConsumeID = csr_cRecordID
+            //where cuad_cFlowType = 'SetMealCost'");
+            //            sbSQLUnknowCost.AppendLine("and cuad_dOptTime" + sbWherePublic.ToString() + ")");
 
             try
             {
-                using (SIOTSDB_HHZXDataContext db = new SIOTSDB_HHZXDataContext())
+                string strSQL = "select TotalMoney=SUM(cuad_fFlowMoney) from( " + sbSQLPreCost.ToString() + sbSQLCardCost.ToString() /*+ sbSQLUnknowCost.ToString()*/+ ")A";
+
+                using (SqlDataReader reader = DbHelperSQL.ExecuteReader(strSQL))
                 {
-                    string strSQL = sbSQLPreCost.ToString() + sbSQLCardCost.ToString() + sbSQLUnknowCost.ToString();
-                    db.CommandTimeout = 5 * 60000;
-                    IEnumerable<CardUserAccountDetail_cuad_Info> query = db.ExecuteQuery<CardUserAccountDetail_cuad_Info>(strSQL, new object[] { });
-                    if (query != null)
+                    if (reader.Read())
                     {
-                        inCome = query.Sum(x => x.cuad_fFlowMoney);
+                        if (reader["TotalMoney"] != null && reader["TotalMoney"].ToString() != string.Empty)
+                        {
+                            inCome = decimal.Parse(reader["TotalMoney"].ToString());
+                        }
                     }
                 }
             }
@@ -405,9 +404,8 @@ where cuad_cFlowType = 'SetMealCost'");
 
             StringBuilder sbSQL = new StringBuilder();
 
-            sbSQL.AppendLine("select * from ConsumeRecord_csr with(nolock)");
-            sbSQL.AppendLine("join dbo.CardUserMaster_cus with(nolock) on ");
-            sbSQL.AppendLine("csr_cCardUserID = cus_cRecordID");
+            sbSQL.AppendLine("select TotalMoney=SUM(csr_fConsumeMoney) from ConsumeRecord_csr with(nolock)");
+            sbSQL.AppendLine("join dbo.CardUserMaster_cus with(nolock) on csr_cCardUserID = cus_cRecordID");
             sbSQL.AppendLine("where cus_cIdentityNum = '" + Common.DefineConstantValue.MasterType.Staff.ToString() + "'");
             sbSQL.AppendLine("and csr_dConsumeDate >='" + startDate.ToString("yyyy-MM-dd") + " 00:00:00'");
             sbSQL.AppendLine("and csr_dConsumeDate < '" + endDate.AddDays(1).ToString("yyyy-MM-dd") + " 00:00:00'");
@@ -417,18 +415,13 @@ where cuad_cFlowType = 'SetMealCost'");
 
             try
             {
-                using (SIOTSDB_HHZXDataContext db = new SIOTSDB_HHZXDataContext())
+                using (SqlDataReader reader = DbHelperSQL.ExecuteReader(sbSQL.ToString()))
                 {
-                    db.CommandTimeout = 5 * 60000;
-                    IEnumerable<ConsumeRecord_csr> query = db.ExecuteQuery<ConsumeRecord_csr>(sbSQL.ToString(), new object[] { });
-
-                    if (query != null)
+                    if (reader.Read())
                     {
-                        returnList = query.ToList<ConsumeRecord_csr>();
-
-                        foreach (ConsumeRecord_csr item in returnList)
+                        if (reader["TotalMoney"] != null && reader["TotalMoney"].ToString() != string.Empty)
                         {
-                            inCome += item.csr_fConsumeMoney;
+                            inCome = decimal.Parse(reader["TotalMoney"].ToString());
                         }
                     }
                 }
@@ -453,20 +446,19 @@ where cuad_cFlowType = 'SetMealCost'");
             try
             {
                 StringBuilder sbSQL = new StringBuilder();
-                sbSQL.AppendLine("select * from PreConsumeRecord_pcs with(nolock)");
+                sbSQL.AppendLine("select TotalMoney=SUM(pcs_fCost) from PreConsumeRecord_pcs with(nolock)");
                 sbSQL.AppendLine("where pcs_lIsSettled = 0");
                 sbSQL.AppendLine("and (pcs_cConsumeType = '" + Common.DefineConstantValue.ConsumeMoneyFlowType.SetMealCost.ToString() + "' or pcs_cConsumeType = '" + Common.DefineConstantValue.ConsumeMoneyFlowType.NewCardCost.ToString() + "' or pcs_cConsumeType = '" + Common.DefineConstantValue.ConsumeMoneyFlowType.ReplaceCardCost.ToString() + "')");
                 sbSQL.AppendLine("and pcs_dAddDate >= '" + startDate.ToString("yyyy-MM-dd") + " 00:00:00'");
                 sbSQL.AppendLine("and pcs_dAddDate < '" + endDate.AddDays(1).ToString("yyyy-MM-dd") + " 00:00:00'");
 
-                using (SIOTSDB_HHZXDataContext db = new SIOTSDB_HHZXDataContext())
+                using (SqlDataReader reader = DbHelperSQL.ExecuteReader(sbSQL.ToString()))
                 {
-                    IEnumerable<PreConsumeRecord_pcs> query = db.ExecuteQuery<PreConsumeRecord_pcs>(sbSQL.ToString(), new object[] { });
-                    if (query != null)
+                    if (reader.Read())
                     {
-                        foreach (PreConsumeRecord_pcs item in query)
+                        if (reader["TotalMoney"] != null && reader["TotalMoney"].ToString() != string.Empty)
                         {
-                            fTotalPreCost += item.pcs_fCost;
+                            fTotalPreCost = decimal.Parse(reader["TotalMoney"].ToString());
                         }
                     }
                 }

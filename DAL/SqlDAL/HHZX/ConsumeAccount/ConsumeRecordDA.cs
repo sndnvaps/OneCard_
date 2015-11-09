@@ -6,6 +6,7 @@ using DAL.IDAL.HHZX.ConsumeAccount;
 using LinqToSQLModel;
 using Model.HHZX.ComsumeAccount;
 using Model.General;
+using System.Data.SqlClient;
 
 namespace DAL.SqlDAL.HHZX.ConsumeAccount
 {
@@ -318,30 +319,24 @@ namespace DAL.SqlDAL.HHZX.ConsumeAccount
 
             StringBuilder sbSQL = new StringBuilder();
 
-            sbSQL.AppendLine("select *");
+            sbSQL.AppendLine("select TotalMoney=SUM(csr_fConsumeMoney)");
             sbSQL.AppendLine("from dbo.ConsumeRecord_csr with(nolock)");
-            sbSQL.AppendLine("join CardUserMaster_cus with(nolock) on csr_cCardUserID = cus_cRecordID");
+            sbSQL.AppendLine("join vie_AllStudentCardUserInfos with(nolock) on csr_cCardUserID = cus_cRecordID");
             sbSQL.AppendLine("where 1=1");
             sbSQL.AppendLine("and (csr_cConsumeType='" + Common.DefineConstantValue.ConsumeMachineType.StuPay.ToString() + "'");
             sbSQL.AppendLine("or csr_cConsumeType='" + Common.DefineConstantValue.ConsumeMachineType.DrinkPay.ToString() + "')");
             sbSQL.AppendLine("and csr_dConsumeDate>='" + startDate.ToString("yyyy-MM-dd") + " 00:00:00'");
             sbSQL.AppendLine("and csr_dConsumeDate<'" + endDate.AddDays(1).ToString("yyyy-MM-dd") + " 00:00:00'");
 
-            List<ConsumeRecord_csr_Info> returnList = new List<ConsumeRecord_csr_Info>();
-
             try
             {
-                using (SIOTSDB_HHZXDataContext db = new SIOTSDB_HHZXDataContext())
+                using (SqlDataReader reader = DbHelperSQL.ExecuteReader(sbSQL.ToString()))
                 {
-                    IEnumerable<ConsumeRecord_csr_Info> query = db.ExecuteQuery<ConsumeRecord_csr_Info>(sbSQL.ToString(), new object[] { });
-
-                    if (query != null)
+                    if (reader.Read())
                     {
-                        returnList = query.ToList<ConsumeRecord_csr_Info>();
-
-                        foreach (ConsumeRecord_csr_Info item in returnList)
+                        if (reader["TotalMoney"] != null && reader["TotalMoney"].ToString() != string.Empty)
                         {
-                            inCome += item.csr_fConsumeMoney;
+                            inCome = decimal.Parse(reader["TotalMoney"].ToString());
                         }
                     }
                 }

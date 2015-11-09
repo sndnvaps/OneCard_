@@ -40,9 +40,8 @@ from(
 	select SUM(pcs_fCost) as CardIncome, COUNT(PayMonth)as CardIncomeCount,PayMonth from 
 	(
 		select pcs_fCost,SUBSTRING(CONVERT(VARCHAR(10),pcs_dAddDate,120),0,8) as PayMonth 
-		from PreConsumeRecord_pcs
-		left join CardUserMaster_cus on pcs_cUserID=cus_cRecordID and cus_lValid=1
-		left join ClassMaster_csm on cus_cClassID = csm_cRecordID ");
+		from PreConsumeRecord_pcs with(nolock)
+		left join vie_AllStudentCardUserInfos with(nolock) on pcs_cUserID=cus_cRecordID ");
                 sbSQL.AppendLine("		where (pcs_cConsumeType = '" + Common.DefineConstantValue.ConsumeMoneyFlowType.NewCardCost.ToString() + "' or pcs_cConsumeType = '" + Common.DefineConstantValue.ConsumeMoneyFlowType.ReplaceCardCost.ToString() + "') and pcs_fCost >0");
                 if (!string.IsNullOrEmpty(sbIncome.ToString()))
                 {
@@ -53,7 +52,7 @@ from(
 left join(
 	select SUM(prd_fPayMoney) as CardCost,SUM(prd_iPayCount) as CardCount,PayMonth from(
 		select prd_fPayMoney,prd_iPayCount,SUBSTRING(CONVERT(VARCHAR(10),prd_dCertificateDate,120),0,8) AS PayMonth 
-		from dbo.PayRecord_prd");
+		from dbo.PayRecord_prd with(nolock)");
                 sbSQL.AppendLine("		where prd_cPayType = 'Card'");
                 if (!string.IsNullOrEmpty(sbCost.ToString()))
                 {

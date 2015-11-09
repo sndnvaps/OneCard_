@@ -6,6 +6,7 @@ using DAL.IDAL.Report;
 using Model.General;
 using Model.HHZX.Report;
 using LinqToSQLModel;
+using System.Data.SqlClient;
 
 namespace DAL.SqlDAL.HHZX.Report
 {
@@ -261,7 +262,7 @@ namespace DAL.SqlDAL.HHZX.Report
 
             StringBuilder sbSQL = new StringBuilder();
 
-            sbSQL.AppendLine("select *");
+            sbSQL.AppendLine("select TotalMoney=SUM(prd_fPayMoney)");
 
             sbSQL.AppendLine("from dbo.PayRecord_prd with(nolock)");
 
@@ -276,17 +277,13 @@ namespace DAL.SqlDAL.HHZX.Report
 
             try
             {
-                using (SIOTSDB_HHZXDataContext db = new SIOTSDB_HHZXDataContext())
+                using (SqlDataReader reader = DbHelperSQL.ExecuteReader(sbSQL.ToString()))
                 {
-                    IEnumerable<PayRecord_prd_Info> query = db.ExecuteQuery<PayRecord_prd_Info>(sbSQL.ToString(), new object[] { });
-
-                    if (query != null)
+                    if (reader.Read())
                     {
-                        returnList = query.ToList<PayRecord_prd_Info>();
-
-                        foreach (PayRecord_prd_Info item in returnList)
+                        if (reader["TotalMoney"] != null && reader["TotalMoney"].ToString() != string.Empty)
                         {
-                            paymentTotal += item.prd_fPayMoney;
+                            paymentTotal = decimal.Parse(reader["TotalMoney"].ToString());
                         }
                     }
                 }

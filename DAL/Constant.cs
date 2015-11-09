@@ -14,7 +14,7 @@ namespace DAL
         /// </summary>
         public static string SQLConnectionString
         {
-           
+
             get
             {
                 string connectionString = ConfigurationManager.AppSettings["SQLConnectionString"];
