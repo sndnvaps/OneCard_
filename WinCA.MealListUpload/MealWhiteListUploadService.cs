@@ -182,7 +182,7 @@ namespace WinCA.MealListUpload
 
                     foreach (ConsumeMachineMaster_cmm_Info macItem in listTechMacs)
                     {
-                        UploadWhiteListToMachine(macItem, listTeachers);
+                        UploadWhiteListToMachine(macItem, listTeachers, true);
                     }
                 }
                 else
@@ -279,7 +279,7 @@ namespace WinCA.MealListUpload
                                 }
                                 try
                                 {
-                                    UploadWhiteListToMachine(macItem, listIsSetUsers);
+                                    UploadWhiteListToMachine(macItem, listIsSetUsers, false);
 
                                     RemoveWhiteListToMachine(macItem, listUnSetUsers);
                                 }
@@ -309,7 +309,7 @@ namespace WinCA.MealListUpload
                                     }
                                     try
                                     {
-                                        UploadWhiteListToMachine(macItem, listUnSetUsers);
+                                        UploadWhiteListToMachine(macItem, listUnSetUsers, false);
                                     }
                                     catch (Exception exx)
                                     {
@@ -391,7 +391,8 @@ namespace WinCA.MealListUpload
         /// </summary>
         /// <param name="macInfo">消费机信息</param>
         /// <param name="listUsers">白名单用户信息</param>
-        void UploadWhiteListToMachine(ConsumeMachineMaster_cmm_Info macInfo, List<CardUserMaster_cus_Info> listUsers)
+        ///  <param name="IsClearedOldList">是否清空旧名单</param>
+        void UploadWhiteListToMachine(ConsumeMachineMaster_cmm_Info macInfo, List<CardUserMaster_cus_Info> listUsers, bool IsClearedOldList)
         {
             try
             {
@@ -407,9 +408,11 @@ namespace WinCA.MealListUpload
                         ReturnValueInfo rvInfo = device.Conn(ipAddr, iPort, iMacNo);
                         if (rvInfo.boolValue && !rvInfo.isError)
                         {
-                            device.RemoveAllWhitelist();
-
-                            Console.WriteLine(getCWStyle("消费机连接成功，已清除所有历史白名单：" + iMacNo + "号", SystemLog.SystemLog.LogType.Trace));
+                            if (IsClearedOldList)
+                            {
+                                device.RemoveAllWhitelist();
+                                Console.WriteLine(getCWStyle("消费机连接成功，已清除所有历史白名单：" + iMacNo + "号", SystemLog.SystemLog.LogType.Trace));
+                            }
 
                             foreach (CardUserMaster_cus_Info techItem in listUsers)
                             {
