@@ -453,14 +453,14 @@ when 'Refund_BatchTransfer' then N'批量转账退款'
 else N'异常类型款项'
 end
 as aoc_cFlowType");
-                sbSQL.AppendLine("from dbo.CardUserAccountDetail_cuad");
-                sbSQL.AppendLine("join dbo.CardUserAccount_cua");
+                sbSQL.AppendLine("from dbo.CardUserAccountDetail_cuad with(nolock)");
+                sbSQL.AppendLine("join dbo.CardUserAccount_cua with(nolock)");
                 sbSQL.AppendLine("on cuad_cCUAID = cua_cRecordID");
-                sbSQL.AppendLine("left join dbo.CardUserMaster_cus");
+                sbSQL.AppendLine("left join dbo.CardUserMaster_cus with(nolock)");
                 sbSQL.AppendLine("on cua_cCUSID=cus_cRecordID");
-                sbSQL.AppendLine("left join dbo.ClassMaster_csm");
+                sbSQL.AppendLine("left join dbo.ClassMaster_csm with(nolock)");
                 sbSQL.AppendLine("on cus_cClassID=csm_cRecordID");
-                sbSQL.AppendLine("left join dbo.DepartmentMaster_dpm");
+                sbSQL.AppendLine("left join dbo.DepartmentMaster_dpm with(nolock)");
                 sbSQL.AppendLine("on cus_cClassID=dpm_RecordID");
                 sbSQL.AppendLine("where 1=1");
 
@@ -533,14 +533,14 @@ when 'Refund_PersonalTransfer' then N'个人转账退款'
 when 'Refund_BatchTransfer' then N'批量转账退款'
 else N'异常类型款项' end as aoc_cFlowType");
                 sbSQL.AppendLine("from ");
-                sbSQL.AppendLine("dbo.PreRechargeRecord_prr");
-                sbSQL.AppendLine("join dbo.CardUserMaster_cus ");
+                sbSQL.AppendLine("dbo.PreRechargeRecord_prr with(nolock) ");
+                sbSQL.AppendLine("join dbo.CardUserMaster_cus with(nolock) ");
                 sbSQL.AppendLine("on cus_cRecordID = prr_cUserID");
-                sbSQL.AppendLine("join dbo.CardUserAccount_cua");
+                sbSQL.AppendLine("join dbo.CardUserAccount_cua with(nolock)");
                 sbSQL.AppendLine("on cua_cCUSID = cus_cRecordID");
-                sbSQL.AppendLine("left join dbo.ClassMaster_csm");
+                sbSQL.AppendLine("left join dbo.ClassMaster_csm with(nolock)");
                 sbSQL.AppendLine("on cus_cClassID=csm_cRecordID");
-                sbSQL.AppendLine("left join dbo.DepartmentMaster_dpm");
+                sbSQL.AppendLine("left join dbo.DepartmentMaster_dpm with(nolock)");
                 sbSQL.AppendLine("on cus_cClassID=dpm_RecordID where 1=1 ");
                 sbSQL.AppendLine("and prr_cRechargeType in(");
                 if (query.IsRechargeTransfer)
@@ -565,9 +565,9 @@ else N'异常类型款项' end as aoc_cFlowType");
                 sbSQL.AppendLine(@"and prr_cRecordID not in(
 select prr_cRecordID from
 (
-select * from PreRechargeRecord_prr
-left join RechargeRecord_rcr on prr_cRCRID = rcr_cRecordID
-left join CardUserAccountDetail_cuad on cuad_cConsumeID = rcr_cRecordID
+select * from PreRechargeRecord_prr with(nolock)
+left join RechargeRecord_rcr with(nolock) on prr_cRCRID = rcr_cRecordID
+left join CardUserAccountDetail_cuad with(nolock) on cuad_cConsumeID = rcr_cRecordID
 where prr_cRechargeType = 'Recharge_BatchTransfer'
 and prr_dAddDate < '2013-09-03'
 ) AS ccc)");
@@ -619,6 +619,7 @@ and prr_dAddDate < '2013-09-03'
 
                 using (SIOTSDB_HHZXDataContext db = new SIOTSDB_HHZXDataContext())
                 {
+                    db.CommandTimeout = 600000;
                     IEnumerable<AmountOfChange_aoc_Info> queryData = db.ExecuteQuery<AmountOfChange_aoc_Info>(sbSQL.ToString(), new object[] { });
                     if (query != null)
                     {
